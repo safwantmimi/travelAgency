@@ -24,7 +24,7 @@ const prices = [27,38,24,32,155,201,75,100,45,78,28,32,50];
 export default function Tours() {
 
   return (
-    <div className="tours p-0 m-0">
+    <div className="tours p-2 m-0">
       <h1>Available <span className="specialText">Tours</span></h1>
       <div className="row  m-0 p-0 toursList d-flex gap-2 justify-content-center">
         {pictures.map((picture, index) => (
