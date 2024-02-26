@@ -5,6 +5,7 @@ import mainArticlePhoto from "../images/london.jpg"
 import amesterdamPhoto from "../images/amesterdam.jpg"
 import sushi from "../images/sushi.jpg"
 import ireland from "../images/irelland.jpg"
+import { FaLocationArrow } from "react-icons/fa";
 export default function Blog() {
   return (
     <div className="blog m-0 p-2">
@@ -27,7 +28,7 @@ export default function Blog() {
                     <div className="article d-flex flex-column  gap-2 my-1">
                         <h2>The New London restaurants to try in january 2024</h2>
                         <p className='text-muted'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore nemo quo perspiciatis veniam quibusdam possimus, ipsam eum velit voluptatem exercitationem, dolor repellat voluptates corporis delectus eius. Quia, similique accusamus nobis assumenda beatae id aut, esse optio distinctio modi corrupti. Quo assumenda earum vero. Deserunt dolorum illum perspiciatis. Accusantium quam ratione totam magnam!</p>
-                        <buttton className="btn btn-primary btnSubmit col-2">Learn more</buttton>
+                        <buttton className="btn btn-primary learnMoreBtn col-2">Learn more<FaLocationArrow className='mx-2'/></buttton>
 
                     </div>
                 </div>
@@ -38,7 +39,7 @@ export default function Blog() {
             <div className="card-body">
               <h5 className="card-title  fw-medium">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h5>
               <p className="card-text tourDescription fw-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, voluptas!</p>
-             
+              <buttton className="btn btn-primary learnMoreBtn col-2">Learn more<FaLocationArrow className='mx-2'/></buttton>
             </div>
           </div>
           <div className="card m-0 p-0" style={{width:'25%'}}  >
@@ -46,7 +47,7 @@ export default function Blog() {
             <div className="card-body">
               <h5 className="card-title  fw-medium">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h5>
               <p className="card-text tourDescription fw-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, nemo!</p>
-             
+              <buttton className="btn btn-primary learnMoreBtn col-2">Learn more<FaLocationArrow className='mx-2'/></buttton>
             </div>
           </div>
           <div className="card m-0 p-0" style={{width:'25%'}}  >
@@ -54,7 +55,8 @@ export default function Blog() {
             <div className="card-body">
               <h5 className="card-title  fw-medium">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h5>
               <p className="card-text tourDescription fw-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, sunt?</p>
-             
+              <buttton className="btn btn-primary learnMoreBtn col-2">Learn more<FaLocationArrow className='mx-2'/></buttton>
+
             </div>
           </div>
           <div className="card m-0 p-0" style={{width:'25%'}}  >
@@ -62,7 +64,8 @@ export default function Blog() {
             <div className="card-body">
               <h5 className="card-title  fw-medium">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h5>
               <p className="card-text tourDescription fw-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, sunt?</p>
-             
+                                     <buttton className="btn btn-primary learnMoreBtn col-2">Learn more<FaLocationArrow className='mx-2'/></buttton>
+
             </div>
           </div>
             </div>

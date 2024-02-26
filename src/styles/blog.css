@@ -25,3 +25,17 @@
     color:var(--primaryColor);
     font-size:20px;
 }
+.learnMoreBtn
+{
+    background-color: transparent;
+    color: var(--primaryColor);
+    border: 1px solid var(--primaryColor);
+    border-radius: 20px;
+    width: fit-content;
+}
+.learnMoreBtn:hover
+{
+    background-color: var(--primaryColor);
+    color: white;
+    border: none;
+}
