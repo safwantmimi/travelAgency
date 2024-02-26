@@ -59,6 +59,9 @@ border: none;
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
   }
   
   .userPhoto {
