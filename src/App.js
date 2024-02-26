@@ -4,6 +4,7 @@ import AuthRouters from "./routes/authRouters/authRouters"
 import ToursRouter from "./routes/toursRouter/toursRouter"
 import CountriesRouter from "./routes/countriesRoute/countriesRouter"
 import BlogRouter from "./routes/blogRoutes/blogRouter"
+import TestimonialsRouter from "./routes/testimonialsRoute/testimonialsRouter"
 function App() {
   return (
    <BrowserRouter>
@@ -11,6 +12,7 @@ function App() {
    <CountriesRouter></CountriesRouter>
    <ToursRouter></ToursRouter>
    <BlogRouter></BlogRouter>
+   <TestimonialsRouter></TestimonialsRouter>
    </BrowserRouter>
   );
 }
