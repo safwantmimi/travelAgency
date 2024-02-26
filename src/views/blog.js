@@ -27,11 +27,13 @@ export default function Blog() {
                     <div className="article d-flex flex-column  gap-2 my-1">
                         <h2>The New London restaurants to try in january 2024</h2>
                         <p className='text-muted'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore nemo quo perspiciatis veniam quibusdam possimus, ipsam eum velit voluptatem exercitationem, dolor repellat voluptates corporis delectus eius. Quia, similique accusamus nobis assumenda beatae id aut, esse optio distinctio modi corrupti. Quo assumenda earum vero. Deserunt dolorum illum perspiciatis. Accusantium quam ratione totam magnam!</p>
+                        <buttton className="btn btn-primary btnSubmit col-2">Learn more</buttton>
+
                     </div>
                 </div>
             </div>
-            <div className="secondarryArticles d-flex justify-content-between p-1  my-2">
-            <div className="card m-0 p-0" style={{width:'30%'}}  >
+            <div className="secondarryArticles d-flex justify-content-start gap-2 p-1  my-2">
+            <div className="card m-0 p-0" style={{width:'25%'}}  >
             <img src={amesterdamPhoto} className="card-img-top" alt={`Tour`} />
             <div className="card-body">
               <h5 className="card-title  fw-medium">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h5>
@@ -39,7 +41,7 @@ export default function Blog() {
              
             </div>
           </div>
-          <div className="card m-0 p-0" style={{width:'30%'}}  >
+          <div className="card m-0 p-0" style={{width:'25%'}}  >
             <img src={sushi} className="card-img-top" alt={`Tour`} />
             <div className="card-body">
               <h5 className="card-title  fw-medium">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h5>
@@ -47,8 +49,16 @@ export default function Blog() {
              
             </div>
           </div>
-          <div className="card m-0 p-0" style={{width:'30%'}}  >
+          <div className="card m-0 p-0" style={{width:'25%'}}  >
             <img src={ireland} className="card-img-top" alt={`Tour`} />
+            <div className="card-body">
+              <h5 className="card-title  fw-medium">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h5>
+              <p className="card-text tourDescription fw-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, sunt?</p>
+             
+            </div>
+          </div>
+          <div className="card m-0 p-0" style={{width:'25%'}}  >
+            <img src={sushi} className="card-img-top" alt={`Tour`} />
             <div className="card-body">
               <h5 className="card-title  fw-medium">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h5>
               <p className="card-text tourDescription fw-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, sunt?</p>
