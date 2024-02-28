@@ -6,6 +6,7 @@ import CountriesRouter from "./routes/countriesRoute/countriesRouter"
 import BlogRouter from "./routes/blogRoutes/blogRouter"
 import TestimonialsRouter from "./routes/testimonialsRoute/testimonialsRouter"
 import DiscoverRouter from './routes/discoverRoutes/discoverRouter';
+import FooterRouter from "./routes/footerRoutes/footerRoute"
 function App() {
   return (
    <BrowserRouter>
@@ -15,6 +16,7 @@ function App() {
    <BlogRouter></BlogRouter>
    <TestimonialsRouter></TestimonialsRouter>
    <DiscoverRouter></DiscoverRouter>
+   <FooterRouter></FooterRouter>
    </BrowserRouter>
   );
 }

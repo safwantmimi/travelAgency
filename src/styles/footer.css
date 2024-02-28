@@ -1,0 +1,53 @@
+:root
+{
+--grayText:#6B727C;
+
+--whiteText:#FFF;
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.footer
+{
+    background-color: #040B1D;
+    border-radius: 25px 25px 0 0;
+    position: fixed;
+    bottom: 0%;
+    
+}
+
+.navigationContainer a:first-child
+{
+color: var(--grayText);
+font-weight: 500;
+}
+.navigationContainer a:not(:first-child),.icons
+{
+color: var(--whiteText);
+}
+a{
+    text-decoration:none ;
+    font-size:1.5em;
+    font-weight: 400;
+}
+a:visited,a:active,a:hover,a:focus
+{
+    color: var(--whiteText);
+}
+.icons
+{
+font-size: 1.5em;
+}
+.logo
+{
+    color: var(--whiteText);
+    font-size: 2em;
+}
+.privacyInformation
+{
+    color: var(--grayText);
+}

@@ -45,13 +45,16 @@
     color: #FFF;
 }
 @keyframes rotatePlayButton {
-    from
+    0%
     {
-        transform: rotate(0deg);
+        border-radius: 0%;
     }
-    to
+    50%{
+        border-radius: 50%;
+    }
+    100%
     {
-        transform: rotate(360deg);
+    border-radius: 0%;
     }
 
 }
