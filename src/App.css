@@ -9,7 +9,7 @@
 }
 :root
 {
-  --primaryColor:#5B3BFF;
+  --primaryColor:rgb(91, 59, 255);
   --warningColor:#FAAF00;
 }
 .specialText

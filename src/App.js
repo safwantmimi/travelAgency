@@ -5,6 +5,7 @@ import ToursRouter from "./routes/toursRouter/toursRouter"
 import CountriesRouter from "./routes/countriesRoute/countriesRouter"
 import BlogRouter from "./routes/blogRoutes/blogRouter"
 import TestimonialsRouter from "./routes/testimonialsRoute/testimonialsRouter"
+import DiscoverRouter from './routes/discoverRoutes/discoverRouter';
 function App() {
   return (
    <BrowserRouter>
@@ -13,6 +14,7 @@ function App() {
    <ToursRouter></ToursRouter>
    <BlogRouter></BlogRouter>
    <TestimonialsRouter></TestimonialsRouter>
+   <DiscoverRouter></DiscoverRouter>
    </BrowserRouter>
   );
 }
