@@ -8,7 +8,7 @@ export default function AuthRouters() {
     <Routes>
     <Route path='/login' element={<Login />}></Route>
     <Route path='/createAccount' element={<Subscribe />}></Route>
-    <Route path='/mainPage' element={<MainPage />}></Route>
+    <Route path='/' element={<MainPage />}></Route>
 
    </Routes>
   )
