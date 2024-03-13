@@ -36,7 +36,7 @@ export default function Footer() {
         </div>
         <div className="row m-0 mt-5 p-0 logoAndInformations">
             <div className="container-fluid">
-                <p className="logo">travely <span className="specialText">.</span></p>
+                <p className="logo">Fast Service Travel <span className="specialText">.</span></p>
             </div>
             <div className="row  m-0 p-0 privacyInformation">
              
