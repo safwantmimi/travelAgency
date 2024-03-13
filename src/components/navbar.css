@@ -1,0 +1,16 @@
+.navbar-brand
+{
+color: var(--primaryColor) !important;
+}
+*
+{
+    font-size: 1.25rem !important;
+}
+.nav-link:hover
+{
+    color: var(--primaryColor) !important;
+}
+.profilIcon
+{
+    font-size: 1.5rem !important;
+}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "../styles/tours.css";
+import  "../styles/tours.css";
 import { Rating } from '@mui/material/';
 import { BiExpandAlt } from "react-icons/bi";
 
@@ -47,7 +47,7 @@ export default function Tours() {
               
               <div className="container-fluid d-flex justify-content-between align-items-baseline">
                 <p>From :<span className='tourPrice'>${prices[index]}</span></p>
-                <a href="#" className="btn btn-primary s-flex jusify-content-end viewTourButton m-1"> View Details <BiExpandAlt className='fs-5'/></a>
+                <a href="#" className="btn btn-primary s-flex justify-content-end  m-1" id="viewTourButtons"> View Details <BiExpandAlt className='fs-5'/></a>
               </div>
             </div>
           </div>

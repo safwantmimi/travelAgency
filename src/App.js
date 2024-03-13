@@ -7,17 +7,12 @@ import BlogRouter from "./routes/blogRoutes/blogRouter"
 import TestimonialsRouter from "./routes/testimonialsRoute/testimonialsRouter"
 import DiscoverRouter from './routes/discoverRoutes/discoverRouter';
 import FooterRouter from "./routes/footerRoutes/footerRoute"
+import NavbarRouter from "./routes/navbarRouters/navbarRouter"
 function App() {
   return (
-   <BrowserRouter>
-   <AuthRouters></AuthRouters>
-   <CountriesRouter></CountriesRouter>
-   <ToursRouter></ToursRouter>
-   <BlogRouter></BlogRouter>
-   <TestimonialsRouter></TestimonialsRouter>
-   <DiscoverRouter></DiscoverRouter>
-   <FooterRouter></FooterRouter>
-   </BrowserRouter>
+    <>
+ 
+   </>
   );
 }
 

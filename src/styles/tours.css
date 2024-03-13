@@ -14,7 +14,7 @@
     padding-top: 5px;
     
 }
-.viewTourButton
+#viewTourButtons
 {
     font-weight: 600;
     background-color: transparent;
@@ -23,7 +23,7 @@
     border-radius: 25px;
     padding:5px 10px;
 }
-.viewTourButton:hover
+#viewTourButtons:hover
 {
     background-color: var(--primaryColor);
     color: white;
