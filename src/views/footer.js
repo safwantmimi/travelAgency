@@ -1,9 +1,9 @@
 import React from 'react';
-import "../styles/footer.css";
+
 import { FaFacebook } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-
+import "../styles/footer.css";
 export default function Footer() {
   return (
     <div className="footer container-fluid p-4">

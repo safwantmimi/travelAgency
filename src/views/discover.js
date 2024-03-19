@@ -19,9 +19,9 @@ export default function Discover() {
   };
 
   return (
-    <div className="guide p-0 container-fluid ">
+    <div className="guide p-0 container-fluid mt-3 "  >
       <div className="row m-0">
-        <div className="col-lg-6 col-md-12 col-sm-12 guideText p-3 d-flex flex-column justify-content-center align-items-center">
+        <div className="col-lg-6 col-md-12 col-sm-12 guideText p-3 d-flex flex-column justify-content-center align-items-center" id="discover">
           <h1 className='guideTitle'>How do we <span className="specialText">organize</span> our trips in Europe</h1>
           <p className='guideDescription'>Learn more about our trips in three-minute video</p>
         </div>

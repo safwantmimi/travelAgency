@@ -4,7 +4,7 @@ import '../styles/testimonials.css';
 import TestimonialsComponent from "../components/testimonyCarousel"
 export default function Testimonials() {
   return (
-    <div className='testimonials p-2 d-flex justify-content-center flex-column align-items-center'>
+    <div className='testimonials p-2 d-flex justify-content-center flex-column align-items-center' id='testimonials'>
       <div className='earthImage m-2 '>
         <img src={earthImage} alt='earth' className='earthImage' />
       </div>

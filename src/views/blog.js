@@ -8,8 +8,8 @@ import ireland from "../images/irelland.jpg"
 import { FaLocationArrow } from "react-icons/fa";
 export default function Blog() {
   return (
-    <div className="blog m-0 p-2">
-        <h1>Read Our <span className='specialText'>Blog</span></h1>
+    <div className="blog m-0 p-2" >
+        <h1 id='blog'>Read Our <span className='specialText'>Blog</span></h1>
         <div className="articles ">
             <div className="mainArticle d-flex gap-3">
                 <div className="articlePhoto">
@@ -26,7 +26,7 @@ export default function Blog() {
                         </div>
                     </div>
                     <div className="article d-flex flex-column  gap-2 my-1">
-                        <h2>The New London restaurants to try in january 2024</h2>
+                        <h2 className='mt-2'>The New London restaurants to try in january 2024</h2>
                         <p className='text-muted'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore nemo quo perspiciatis veniam quibusdam possimus, ipsam eum velit voluptatem exercitationem, dolor repellat voluptates corporis delectus eius. Quia, similique accusamus nobis assumenda beatae id aut, esse optio distinctio modi corrupti. Quo assumenda earum vero. Deserunt dolorum illum perspiciatis. Accusantium quam ratione totam magnam!</p>
                         <buttton className="btn btn-primary learnMoreBtn col-2">Learn more<FaLocationArrow className='mx-2'/></buttton>
 

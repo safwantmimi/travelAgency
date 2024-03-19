@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import  "../styles/tours.css";
 import { Rating } from '@mui/material/';
 import { BiExpandAlt } from "react-icons/bi";
+
+import  "../styles/tours.css";
 
 const pictures = [
   require("../images/uk.jpg"),
@@ -24,11 +25,11 @@ const prices = [27,38,24,32,155,201,75,100,45,78,28,32,50];
 export default function Tours() {
 
   return (
-    <div className="tours p-2 m-0">
-      <h1>Available <span className="specialText">Tours</span></h1>
-      <div className="row  m-0 p-0 toursList d-flex gap-2 justify-content-center">
+    <div className="tours p-2 m-0 " >
+      <h1 id='tours'>Available <span className="specialText">Tours</span></h1>
+      <div className="row  m-0 p-0 toursList d-flex gap-3 justify-content-center" >
         {pictures.map((picture, index) => (
-          <div className="card m-0 p-0" style={{ width: "18rem" }} key={index}>
+          <div className="card m-0 p-0 col-lg-3 col-md-4 col-sm-12"  key={index}>
             <img src={picture} className="card-img-top" alt={`Tour ${index + 1}`} />
             <div className="card-body">
               <h5 className="card-title tourDuration fw-normal">7 days </h5>
@@ -46,8 +47,8 @@ export default function Tours() {
               
               
               <div className="container-fluid d-flex justify-content-between align-items-baseline">
-                <p>From :<span className='tourPrice'>${prices[index]}</span></p>
-                <a href="#" className="btn btn-primary s-flex justify-content-end  m-1" id="viewTourButtons"> View Details <BiExpandAlt className='fs-5'/></a>
+                <p>From <span className='tourPrice'>${prices[index]}</span></p>
+                <a href="#" className="btn btn-primary s-flex justify-content-end  m-1" id="viewTourButtons"> Details &nbsp;&nbsp;<BiExpandAlt className='fs-5 '/></a>
               </div>
             </div>
           </div>

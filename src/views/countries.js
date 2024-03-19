@@ -35,8 +35,8 @@ const pictures = [
 
 export default function Countries() {
   return (
-    <div className="countriesList row p-2 m-0 d-flex gap-2 justify-content-center">
-      <h1><span className='specialText'>Countries </span>travel to </h1>
+    <div className="countriesList row p-2 m-0 d-flex gap-2 justify-content-center" >
+      <h1 id='destinations'><span className='specialText'>Countries </span>travel to </h1>
       {countryList.map((country, index) => (
         <div key={index} className="country d-flex p-2 gap-2 align-items-center col-lg-3">
           <div className="flag" style={{ backgroundImage: `url(${pictures[index]})` }}></div>

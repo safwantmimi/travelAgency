@@ -20,12 +20,12 @@
 
 .navigationContainer a:first-child
 {
-color: var(--grayText);
+color: var(--grayText) !important;
 font-weight: 500;
 }
 .navigationContainer a:not(:first-child),.icons
 {
-color: var(--whiteText);
+color: var(--whiteText) !important;
 }
 a{
     text-decoration:none ;
@@ -34,7 +34,7 @@ a{
 }
 a:visited,a:active,a:hover,a:focus
 {
-    color: var(--whiteText);
+    color: var(--whiteText) !important;
 }
 .icons
 {
@@ -42,10 +42,10 @@ font-size: 1.5em;
 }
 .logo
 {
-    color: var(--whiteText);
+    color: var(--whiteText) !important;
     font-size: 2em;
 }
 .privacyInformation
 {
-    color: var(--grayText);
+    color: var(--grayText) !important;
 }

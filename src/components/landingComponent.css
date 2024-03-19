@@ -1,73 +1,32 @@
-.main
+.landingComponent
 {
-  background-image: url("../images/default.jpg");
-}
-.landing-page {
-  background-color: #000;
-  color: #fff;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+    background-image: url("../images/flightWallpaper.png");
+    background-size: cover;
+    height: 80vh;
+    
 }
 
-.landing-content {
-  text-align: center;
-}
 
-.logo {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.tagline {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.subscribe {
-  margin-bottom: 2rem;
-}
-
-.info-text {
-  margin-bottom: 1rem;
-}
-
-.subscribe-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.subscribe-input {
-  width: 300px;
-  padding: 0.5rem;
-  border: none;
-  border-radius: 5px;
-  margin-right: 1rem;
-}
-
-.subscribe-btn {
-  padding: 0.5rem 1rem;
-  background-color: #dc3545;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.social-icons {
-  font-size: 2rem;
-}
-
-.social-icons a {
-  color: #fff;
-  margin: 0 0.5rem;
-}
-
-.cursive
+.slogan
 {
-  font-size: 1.25rem !important;
+    font-size:3rem  !important ;
+
+}
+.sloganMessage
+{
+    font-size: 1.5rem !important;
+}
+.btnApply
+{
+    background-color: var(--primaryColor);
+    padding: 10px;
+    color: #fff;
+    font-weight: 400;
+}
+.btnApply:hover
+{
+    background-color:   rgb(78, 50, 217);
+    padding: 10px;
+    color: #fff;
+    font-weight: 400;
 }
