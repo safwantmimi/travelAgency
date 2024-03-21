@@ -3,8 +3,12 @@ import Navbar from '../components/navbar'
 import { FaPlus } from 'react-icons/fa6'
 import { FaMinus } from 'react-icons/fa6'
 import { MdNavigateNext } from 'react-icons/md'
-
+import AuthEmailAndOtp from '../components/authEmailAndOtp'
 import Calendar from 'react-calendar'
+import { GrLinkNext } from "react-icons/gr";
+import { FaPerson } from "react-icons/fa6";
+import { GrLinkPrevious } from "react-icons/gr";
+
 import '../styles/visaDemand.css'
 const countries = require('../dataSources/countries')
 
@@ -16,11 +20,28 @@ export default function VisaDemand () {
     'visaStepNotActive'
   ])
   const [totalCost, setTotalCost] = useState(0)
+  const [travelersVector, setTravelersVector] = useState([])
   const [countriesCopy, setCountriesCopy] = useState(countries)
+  const [activePerson,setActivePerson]=useState(0)
   const stepOne=useRef(null)
   const stepTwo=useRef(null)
   const stepThree=useRef(null)
   const stepFour=useRef(null)
+  const modalOpener=useRef(null)
+  const HandleActivePersonPlus=()=>{
+    if(activePerson<visaData.noOfTraverlers)
+    {
+      setActivePerson(activePerson+1)
+    }
+    
+  }
+  const HandleActivePersonMinus=()=>{
+    if(activePerson>=1)
+    {
+      setActivePerson(activePerson-1)
+    }
+    
+  }
   const [visaData, setVisaData] = useState({
     country: '',
     visaType: '',
@@ -41,6 +62,12 @@ export default function VisaDemand () {
     if (noOfTraverlers >= 0) {
       setVisaData({ ...visaData, noOfTraverlers })
     }
+    let v=[]
+    for(var i=0;i<noOfTraverlers;i++)
+    {
+      v.push(0)
+    }
+    setTravelersVector(v)
     calculateCost()
   }
   const searchCountry = event => {
@@ -195,6 +222,15 @@ export default function VisaDemand () {
                                       country: country.countryName,
                                       visaType: type
                                     })
+                                    setActiveStates([
+                                      'visaStepNotActive',
+                                      'visaStepActive',
+                                      'visaStepNotActive',
+                                      'visaStepNotActive'
+                                    ])
+                                    stepOne.current.classList.add("d-none")
+                                    stepTwo.current.classList.remove("d-none")
+                                    stepThree.current.classList.add("d-none")
                                   }}
                                 >
                                   {type}
@@ -261,7 +297,7 @@ export default function VisaDemand () {
                   <div className='col infoContainer m-0 p-0 '>
                     <span className='cost mx-2'>
                       {' '}
-                      {visaData.noOfTraverlers}{' '}
+                      {totalCost}{' '}
                     </span>{' '}
                     Saudi Riyal
                   </div>
@@ -306,28 +342,89 @@ export default function VisaDemand () {
                     'visaStepActive',
                     'visaStepNotActive'
                   ])
-                  setActiveStates([
-                    'visaStepNotActive',
-                    'visaStepNotActive',
-                    'visaStepActive',
-                    'visaStepNotActive'
-                  ])
+               
                   stepOne.current.classList.add("d-none")
                   stepTwo.current.classList.add("d-none")
                   stepThree.current.classList.remove("d-none")
+                  modalOpener.current.click()
                 }}
               >
                 Next Step : Fill passenger's data{' '}
-                <MdNavigateNext className='mx-2 fs-3'></MdNavigateNext>
               </button>
             </div>
           </div>
         </section>
+        <AuthEmailAndOtp className="d-none" ref={modalOpener}></AuthEmailAndOtp>
         <section className='stepTwo d-none d-flex align-items-center flex-column' ref={stepThree}>
           <div className='visaStep1Container col-lg-10 mt-2 p-0 bg-white py-2'>
             <h1 className='text-center fs-3'>
               Filling Passenger's data
             </h1>
+            <div className="container-fluid d-flex column-gap-5 justify-content-center">
+              {
+              travelersVector.map((element,index)=>{
+                if(index==activePerson){
+                  return (
+                    <FaPerson className="fs-1  personAvatar activePersonAvatar" key={'person' +index}></FaPerson>
+                  )}
+                else if (index<activePerson){
+                  return (
+                  <FaPerson className="fs-1  personAvatar donePersonAvatar" key={'person' +index}></FaPerson>
+                )}
+                else
+                {
+                  return (
+                    <FaPerson className="fs-1  personAvatar " key={'person' +index}></FaPerson>
+                  )
+                }
+               
+              })
+              }
+            </div>
+            <div className='calendarContainer container-fluid p-2'>
+            <form>
+  <div className="form-group mt-2">
+    <label  className="specialText" for="inputName">Name</label>
+    <input type="text" className="form-control" id="inputName" placeholder="Enter your name" />
+  </div>
+  <div className="form-group mt-2">
+    <label  className="specialText" for="inputFirstName">First Name</label>
+    <input type="text" className="form-control" id="inputFirstName" placeholder="Enter your first name" />
+  </div>
+  <div className="form-group mt-2">
+    <label  className="specialText" for="inputGender">Gender</label>
+    <select className="form-control" id="inputGender">
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
+    </select>
+  </div>
+  <div className="form-group mt-2">
+    <label  className="specialText" for="inputEmail">Email address</label>
+    <input type="email" className="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email" />
+    <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div className="form-group mt-2">
+    <label  className="specialText" for="inputPhoneNumber">Phone Number</label>
+    <input type="tel" className="form-control" id="inputPhoneNumber" placeholder="Enter your phone number" />
+  </div>
+  <div className="form-group mt-2">
+    <label  className="specialText" for="inputDateOfBirth">Date of Birth</label>
+    <input type="date" className="form-control" id="inputDateOfBirth" />
+  </div>
+  <div className="form-group mt-2">
+    <label  className="specialText" for="inputPassportScan">Passport Scan</label>
+    <br />
+    <input type="file" className="form-control-file" id="inputPassportScan" />
+    <small id="passportScanHelp" className="form-text text-muted">Please upload a scan of your passport.</small>
+  </div>
+  <div className="container-fluid d-flex justify-content-center column-gap-1">
+  <button type="button" className="btn nextPerson" onClick={HandleActivePersonMinus}><GrLinkPrevious className='mx-2'></GrLinkPrevious> Previous Person</button>
+
+  <button type="button" className="btn nextPerson" onClick={HandleActivePersonPlus}>Next Person  <GrLinkNext className='mx-2'></GrLinkNext></button>
+  </div>
+</form>
+            </div>
             </div>
             </section>
       </div>

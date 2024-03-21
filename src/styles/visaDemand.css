@@ -260,3 +260,28 @@ border: none;
 {
     font-size: 1.25rem !important;
 }
+.personAvatar
+{
+    color: var(--grayText); 
+    font-size: 3rem !important;
+}
+.activePersonAvatar
+{
+    color: var(--primaryColor);
+}
+.donePersonAvatar
+{
+    color:#77DD77	;
+}
+.nextPerson
+{
+    background-color: var(--primaryColor);
+    color: white;
+
+}
+.nextPerson:hover
+{
+    background-color:#422abb;
+    color: white;
+    
+}
