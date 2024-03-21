@@ -11,7 +11,7 @@ function Navbar() {
 
   return (
     <nav className="navbar navbar-expand-lg align-items-baseline p-2 m-0">
-      <a className="navbar-brand p-1" href="#navbarBrand">
+      <a className="navbar-brand p-1" href="http://localhost:3000/#navbarBrand">
         Fast Service Travel
       </a>
       <button
@@ -28,37 +28,37 @@ function Navbar() {
       <div className="collapse navbar-collapse">
         <ul className="navbar-nav d-flex flex-row col mx-5 justify-content-center gap-4" id='navbarNav'>
           <li className="nav-item mx-2" onClick={() => setActive(0)}>
-            <a className={"nav-link " + (activeList[0] ? "active" : "")} href="#landing">
+            <a className={"nav-link " + (activeList[0] ? "active" : "")} href="http://localhost:3000/#landing">
               Visa
             </a>
           </li>
           <li className="nav-item mx-2" onClick={() => setActive(1)}>
-            <a className={"nav-link " + (activeList[1] ? "active" : "")} href="#discover">
+            <a className={"nav-link " + (activeList[1] ? "active" : "")} href="http://localhost:3000/#discover">
               Discover
             </a>
           </li>
           <li className="nav-item mx-2" onClick={() => setActive(2)}>
-            <a className={"nav-link " + (activeList[2] ? "active" : "")} href="#tours">
+            <a className={"nav-link " + (activeList[2] ? "active" : "")} href="http://localhost:3000/#tours">
               Tours
             </a>
           </li>
           <li className="nav-item mx-2" onClick={() => setActive(3)}>
-            <a className={"nav-link " + (activeList[3] ? "active" : "")} href="#blog">
+            <a className={"nav-link " + (activeList[3] ? "active" : "")} href="http://localhost:3000/#blog">
               Our Blog
             </a>
           </li>
           <li className="nav-item mx-2" onClick={() => setActive(4)}>
-            <a className={"nav-link " + (activeList[4] ? "active" : "")} href="#destinations">
+            <a className={"nav-link " + (activeList[4] ? "active" : "")} href="http://localhost:3000/#destinations">
               Destinations
             </a>
           </li>
           <li className="nav-item mx-2" onClick={() => setActive(5)}>
-            <a className={"nav-link " + (activeList[5] ? "active" : "")}  href="#testimonials">
+            <a className={"nav-link " + (activeList[5] ? "active" : "")}  href="http://localhost:3000/#testimonials">
               Tesimonials
             </a>
           </li>
           <li className="nav-item mx-2" onClick={() => setActive(6)}>
-            <a className={"nav-link " + (activeList[6] ? "active" : "")} href="#contact">
+            <a className={"nav-link " + (activeList[6] ? "active" : "")} href="http://localhost:3000/#contact">
               Contact Us
             </a>
           </li>
