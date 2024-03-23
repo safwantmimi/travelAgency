@@ -20,3 +20,11 @@
 {
   color: var(--warningColor);
 }
+h1
+{
+  font-size: 1.5rem !important;
+}
+h1 span
+{
+font-size: unset !important;
+}

@@ -40,7 +40,7 @@ export default function Discover() {
       <div className="row m-0 mt-5 p-2 d-flex justify-content-center ">
         <div className="col-lg-10 col-sm-12 p-3 stepsContainer">
           <div className="col-12">
-          <h1 className='text-center  mb-5'>How to <span className="specialText">book</span> a tour in <span className='specialText'>Travely</span></h1>
+          <h1 className='text-center  mb-5'>How to <span className="specialText">book</span> a tour in <span className='specialText'>First Service Travel</span></h1>
           </div>
        
           <div className="row m-0 p-0">

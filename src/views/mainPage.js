@@ -8,11 +8,13 @@ import Tours from './tours';
 import Countries from "./countries"
 import Footer from './footer';
 import Navbar from '../components/navbar';
+import Services from './services';
 export default function mainPage() {
   return (
 <>
     <Navbar></Navbar>
     <LandingComponent></LandingComponent>
+    <Services></Services>
     <Discover></Discover>
     <Tours></Tours>
     <Blog></Blog>
