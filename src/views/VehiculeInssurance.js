@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import Navbar from '../components/navbar';
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
 import { AiOutlineUser, AiOutlinePhone, AiOutlineMail } from "react-icons/ai";
-import { MdLocationOn } from "react-icons/md";
+import { MdInsertDriveFile } from "react-icons/md";
 import "../styles/servicesStyle.css";
 
-const NewServiceForm = () => {
+const VehicleInsuranceForm = () => {
   const [serviceType, setServiceType] = useState('');
-  const [numberOfServices, setNumberOfServices] = useState(1);
-  const [deliveryMethod, setDeliveryMethod] = useState('');
+  const [driverLicenseFile, setDriverLicenseFile] = useState(null);
+  const [vehicleLicenseFile, setVehicleLicenseFile] = useState(null);
   const [applicantName, setApplicantName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
@@ -23,34 +23,42 @@ const NewServiceForm = () => {
     <>
       <Navbar />
       <div className="container fillFormContainer" style={{ marginTop: "10vh" }}>
-        <h2 className='specialText fs-3 text-md-center'>International Licence Notebook</h2>
+        <h2 className='specialText fs-3 text-md-center'>Vehicle Insurance - Bahrain</h2>
         <form onSubmit={handleSubmit} className='fillForm'>
-        
+       
+         
           <div className="form-group mt-2">
-            <label htmlFor="numberOfServices">Number of Licences</label>
-            <input
-              type="number"
-              min={1}
-              className="form-control"
-              id="numberOfServices"
-              placeholder="Enter Number of Services"
-              value={numberOfServices}
-              onChange={(e) => setNumberOfServices(e.target.value)}
-            />
+            <label htmlFor="driverLicenseFile"><MdInsertDriveFile className='specialText fs-3' /> Driver's License (Form)</label>
+            <div className="custom-file">
+              <input
+                type="file"
+                className="custom-file-input d-none"
+                id="driverLicenseFile"
+                accept=".pdf"
+                onChange={(e) => setDriverLicenseFile(e.target.files[0])}
+              />
+              <button className="btn custom-file-label submitBtn text-white" htmlFor="driverLicenseFile" onClick={()=>{
+                document.getElementById("driverLicenseFile").click()
+              }}>Choose file</button>
+            </div>
           </div>
           <div className="form-group mt-2">
-            <label htmlFor="deliveryMethod"><MdLocationOn className='specialText fs-3'/> How Would You Like to Receive the Service?</label>
-            <input
-              type="text"
-              className="form-control"
-              id="deliveryMethod"
-              placeholder="Enter Delivery Method"
-              value={deliveryMethod}
-              onChange={(e) => setDeliveryMethod(e.target.value)}
-            />
+            <label htmlFor="vehicleLicenseFile"><MdInsertDriveFile className='specialText fs-3' /> Vehicle License (Form)</label>
+            <div className="custom-file">
+              <input
+                type="file"
+                className="custom-file-input d-none"
+                id="vehicleLicenseFile"
+                accept=".pdf"
+                onChange={(e) => setVehicleLicenseFile(e.target.files[0])}
+              />
+              <button className="btn custom-file-label submitBtn text-white" htmlFor="vehicleLicenseFile" onClick={()=>{
+                document.getElementById("vehicleLicenseFile").click()
+              }}>Choose file</button>
+            </div>
           </div>
           <div className="form-group mt-2">
-            <label htmlFor="applicantName"><AiOutlineUser className='specialText fs-3'/> Applicant Name</label>
+            <label htmlFor="applicantName"><AiOutlineUser className='specialText fs-3' /> Applicant Name</label>
             <input
               type="text"
               className="form-control"
@@ -61,7 +69,7 @@ const NewServiceForm = () => {
             />
           </div>
           <div className="form-group mt-2">
-            <label htmlFor="phoneNumber"><AiOutlinePhone className='specialText fs-3'/> Phone Number</label>
+            <label htmlFor="phoneNumber"><AiOutlinePhone className='specialText fs-3' /> Phone Number</label>
             <input
               type="tel"
               className="form-control"
@@ -72,7 +80,7 @@ const NewServiceForm = () => {
             />
           </div>
           <div className="form-group mt-2">
-            <label htmlFor="email"><AiOutlineMail className='specialText fs-3'/> Email Address</label>
+            <label htmlFor="email"><AiOutlineMail className='specialText fs-3' /> Email Address</label>
             <input
               type="email"
               className="form-control"
@@ -84,8 +92,8 @@ const NewServiceForm = () => {
           </div>
           <div className="container d-flex justify-content-center flex-column align-items-center mt-2">
             <h1 className='serviceFee fs-4'>Service Cost</h1>
-            <p className='priceText specialText fs-5'>119 Saudi Riyals</p>
-            <p className='priceNotes fs-6'>(Price includes: Service fees, issuance of the international license, and receipt at one of our branches. Does not include delivery fees to home)</p>
+            <p className='priceText specialText fs-5'>Service fee including tax:</p>
+            <p className='priceNotes fs-6'>(3 days: 30 Saudi Riyals, 5 days: 50 Saudi Riyals, 10 days: 85 Saudi Riyals)</p>
           </div>
           <div className="container d-flex justify-content-center mt-3">
             <button type="submit" className="btn btn-primary btn-success">Submit Request <IoCheckmarkDoneSharp className='fs-4' /></button>
@@ -96,4 +104,4 @@ const NewServiceForm = () => {
   );
 };
 
-export default NewServiceForm;
+export default VehicleInsuranceForm;

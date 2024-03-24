@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 import Navbar from '../components/navbar';
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
 import { AiOutlineUser, AiOutlinePhone, AiOutlineMail } from "react-icons/ai";
-import { MdLocationOn } from "react-icons/md";
 import "../styles/servicesStyle.css";
 
-const NewServiceForm = () => {
+const QatarVisaForm = () => {
   const [serviceType, setServiceType] = useState('');
-  const [numberOfServices, setNumberOfServices] = useState(1);
-  const [deliveryMethod, setDeliveryMethod] = useState('');
+  const [passportCount, setPassportCount] = useState(1);
   const [applicantName, setApplicantName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
@@ -23,30 +21,20 @@ const NewServiceForm = () => {
     <>
       <Navbar />
       <div className="container fillFormContainer" style={{ marginTop: "10vh" }}>
-        <h2 className='specialText fs-3 text-md-center'>International Licence Notebook</h2>
+        <h2 className='specialText fs-3 text-md-center'>Qatar Visa for Residents</h2>
         <form onSubmit={handleSubmit} className='fillForm'>
         
+          
           <div className="form-group mt-2">
-            <label htmlFor="numberOfServices">Number of Licences</label>
+            <label htmlFor="passportCount">Number of Passports</label>
             <input
               type="number"
               min={1}
               className="form-control"
-              id="numberOfServices"
-              placeholder="Enter Number of Services"
-              value={numberOfServices}
-              onChange={(e) => setNumberOfServices(e.target.value)}
-            />
-          </div>
-          <div className="form-group mt-2">
-            <label htmlFor="deliveryMethod"><MdLocationOn className='specialText fs-3'/> How Would You Like to Receive the Service?</label>
-            <input
-              type="text"
-              className="form-control"
-              id="deliveryMethod"
-              placeholder="Enter Delivery Method"
-              value={deliveryMethod}
-              onChange={(e) => setDeliveryMethod(e.target.value)}
+              id="passportCount"
+              placeholder="Enter Number of Passports"
+              value={passportCount}
+              onChange={(e) => setPassportCount(e.target.value)}
             />
           </div>
           <div className="form-group mt-2">
@@ -84,8 +72,7 @@ const NewServiceForm = () => {
           </div>
           <div className="container d-flex justify-content-center flex-column align-items-center mt-2">
             <h1 className='serviceFee fs-4'>Service Cost</h1>
-            <p className='priceText specialText fs-5'>119 Saudi Riyals</p>
-            <p className='priceNotes fs-6'>(Price includes: Service fees, issuance of the international license, and receipt at one of our branches. Does not include delivery fees to home)</p>
+            <p className='priceText specialText fs-5'>199 Saudi Riyals</p>
           </div>
           <div className="container d-flex justify-content-center mt-3">
             <button type="submit" className="btn btn-primary btn-success">Submit Request <IoCheckmarkDoneSharp className='fs-4' /></button>
@@ -96,4 +83,4 @@ const NewServiceForm = () => {
   );
 };
 
-export default NewServiceForm;
+export default QatarVisaForm;

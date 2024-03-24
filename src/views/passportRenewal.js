@@ -38,21 +38,12 @@ const PassportRenewalForm = () => {
       <div className="container fillFormContainer" style={{ marginTop: "10vh" }}>
         <h2 className='specialText fs-3 text-md-center'>Passport Renewal Service</h2>
         <form onSubmit={handleSubmit} className='fillForm'>
-          <div className="form-group mt-2">
-            <label htmlFor="serviceType"><MdOutlineHomeRepairService className='specialText fs-3'/> Select Service Type</label>
-            <input
-              type="text"
-              className="form-control"
-              id="serviceType"
-              placeholder="Enter Service Type"
-              value={serviceType}
-              onChange={(e) => setServiceType(e.target.value)}
-            />
-          </div>
+         
           <div className="form-group mt-2">
             <label htmlFor="numberOfPassports">Number of Passports</label>
             <input
               type="number"
+              min={1}
               className="form-control"
               id="numberOfPassports"
               placeholder="Enter Number of Passports"
