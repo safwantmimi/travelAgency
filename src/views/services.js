@@ -64,13 +64,41 @@ const servicesRoutes = [
 export default function Services() {
   const settings = {
     dots: true,
-    infinite: true,
+    infinite: true, // Set infinite to false
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay:true,
-    stopOnFocus:false
+    autoplay: true,
+    stopOnFocus: false,
+    // Adjusting responsive settings to avoid white space at the end
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true, // Set infinite to false for each breakpoint
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true, // Set infinite to false for each breakpoint
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true, // Set infinite to false for each breakpoint
+        }
+      }
+    ]
   };
+  
 
   return (
     <div className="m-0 mt-2 p-0">
@@ -80,7 +108,7 @@ export default function Services() {
           <Link to={`${servicesRoutes[index]}`} key={index} className="service-link">
             <div className="card serviceCard p-0 m-0" >
               <img className="card-img-top m-0 p-0" src={service.src} alt={service.alt} />
-              <div className="card-footer serviceCardFooter">{servicesDescription[index]}</div>
+              <div className="card-footer serviceCardFooter text-center">{servicesDescription[index]}</div>
             </div>
           </Link>
         ))}

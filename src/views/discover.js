@@ -54,7 +54,7 @@ export default function Discover() {
         </button>
         <div className="stepDescription d-flex flex-column align-items-center justify-content-center m-2">
           <h3>{stepsTitles[index]}</h3>
-          <p className='stepContent'>{stepsContent[index]}</p>
+          <p className='stepContent text-center'>{stepsContent[index]}</p>
         </div>
       </div>
     </div>

@@ -45,7 +45,7 @@ export default function Footer() {
                     <a href='' className='mx-2' >Public Offer</a>
                 </div>
                 <div className="col-lg-6 col-md-12 d-flex justify-content-end">
-                <span className="fs-3">&copy;2017-{new Date().getFullYear()}</span>
+                <span className="fs-5">&copy;2017-{new Date().getFullYear()}</span>
                 
                 </div>
             </div>

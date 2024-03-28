@@ -285,3 +285,13 @@ border: none;
     color: white;
     
 }
+.react-calendar .react-calendar__tile--active {
+    background-color:rgba(66, 42, 187,0.9); 
+    border-radius: 15px;
+    
+  }
+  .react-calendar .react-calendar__tile--active abbr{
+    color: #fff !important;
+    font-weight: 700;
+  }
+  

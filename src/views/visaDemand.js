@@ -67,8 +67,9 @@ export default function VisaDemand () {
     {
       v.push(0)
     }
+
     setTravelersVector(v)
-    calculateCost()
+    calculateCost(noOfTraverlers)
   }
   const searchCountry = event => {
     setCountriesCopy(
@@ -81,11 +82,11 @@ export default function VisaDemand () {
       })
     )
   }
-  const calculateCost = () => {
+  const calculateCost = (noOfTraverlers) => {
     const visaCost = countries.filter(element => {
       return element.countryName === visaData.country
     })
-    setTotalCost(visaCost[0].pricePerPerson * visaData.noOfTraverlers)
+    setTotalCost(visaCost[0].pricePerPerson *noOfTraverlers)
   }
   return (
     <>
@@ -126,7 +127,7 @@ export default function VisaDemand () {
               stepThree.current.classList.add("d-none")
             }}
           >
-            <span>Step 2 :</span> Date and number of passengers
+            <span>Step 2 :</span> Travelers Details
           </button>
           <button
             className={
@@ -144,7 +145,7 @@ export default function VisaDemand () {
               stepThree.current.classList.remove("d-none")
             }}
           >
-            <span>Step 3 :</span> Data of passengers
+            <span>Step 3 :</span> Passenger's informations
           </button>
           <button
             className={
@@ -207,7 +208,7 @@ export default function VisaDemand () {
                             Start a Visa Demand
                           </button>
                           <div
-                            className='dropdown-menu p-2 dropDownContainer'
+                            className='dropdown-menu p-2 dropDownContainer   text-center'
                             id='dropdown'
                             aria-labelledby='dropdownMenuButton'
                           >
@@ -259,7 +260,7 @@ export default function VisaDemand () {
                 onChange={event => {
                   changeVisaDate(event)
                 }}
-                value={new Date()}
+                
               />
             </div>
             <h1 className='text-center mt-2'>Expected Travel Date :</h1>

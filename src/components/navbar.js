@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './navbar.css';
+import logo from "../images/logo.png"
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   const [activeList, setActiveList] = useState([true, false, false, false, false, false, false]);
@@ -11,9 +13,9 @@ function Navbar() {
 
   return (
     <nav className="navbar navbar-expand-lg align-items-baseline p-2 m-0">
-      <a className="navbar-brand p-1" href="http://localhost:3000/#navbarBrand">
-        Fast Service Travel
-      </a>
+      <Link className="navbar-brand p-1" to="/">
+        <img src={logo} alt="First Service Travel:" className='navbarLogo' />
+      </Link>
       <button
         className="navbar-toggler"
         type="button"
