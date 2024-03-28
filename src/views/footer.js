@@ -25,13 +25,11 @@ export default function Footer() {
             </div>
             <div className="col-lg-3 col-sm-12 d-flex flex-column navigationContainer">
                 <a>Contact us</a>
-                <a>support@travely.pl</a>
-                <a>business@travely.pl</a>
+                <a>info@fastservicetravel.com</a>
             </div>
             <div className="col-lg-3 col-sm-12 d-flex flex-column navigationContainer">
                 <a>Location</a>
-                <a>Lorem, ipsum dolor.</a>
-                <a>Lorem, ipsum dolor.</a>
+                <a>Riyadh ,Saudi Arabia</a>
             </div>
         </div>
         <div className="row m-0 mt-5 p-0 logoAndInformations">
@@ -45,7 +43,7 @@ export default function Footer() {
                     <a href='' className='mx-2' >Public Offer</a>
                 </div>
                 <div className="col-lg-6 col-md-12 d-flex justify-content-end">
-                <span className="fs-5">&copy;2017-{new Date().getFullYear()}</span>
+                <span className="fs-5">&copy; Created in {new Date().getFullYear()}</span>
                 
                 </div>
             </div>

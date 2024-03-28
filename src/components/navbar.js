@@ -14,7 +14,7 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg align-items-baseline p-2 m-0">
       <Link className="navbar-brand p-1" to="/">
-        <img src={logo} alt="First Service Travel:" className='navbarLogo' />
+       <h1 className='specialText'> Fast Service Travel</h1>
       </Link>
       <button
         className="navbar-toggler"
