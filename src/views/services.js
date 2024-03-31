@@ -67,12 +67,12 @@ const Services = () => {
 
   const settings = {
     dots: true,
-    speed: 1000,
+    speed: 5000,
     slidesToShow: 5,
     slidesToScroll: 5,
     infinite: true,
     autoplay: true,
-    autoplaySpeed: 1500,
+    autoplaySpeed: 300,
     // Adjusting responsive settings to avoid white space at the end
     responsive: [
       {

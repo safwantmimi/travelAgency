@@ -19,7 +19,7 @@ export default function Testimonials() {
       <TestimonialsComponent 
         userNames={[t('userNames.david'), t('userNames.moccha'), t('userNames.alfred')]}
         userPhotos={["person1", "person2", "person3"]} // Assuming images are static
-        userRatings={[4.5, 2, 5]}
+        userRatings={[4.5, 3, 5]}
         usersReviews={[t('userReviews.review1'), t('userReviews.review2'), t('userReviews.review3')]}
       />
     </div>
