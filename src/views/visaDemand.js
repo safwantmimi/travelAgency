@@ -423,7 +423,7 @@ export default function VisaDemand() {
     <small id="passportScanHelp" className="form-text text-muted">{t('uploadScan')}</small>
   </div>
   <div className="container-fluid d-flex justify-content-center column-gap-1">
-  {isArabic ? (
+  {! isArabic ? (
   <>
       <button type="button" className="btn nextPerson" onClick={HandleActivePersonMinus}><GrLinkPrevious className='mx-2'></GrLinkPrevious> {t('previousPerson')}</button>
     
