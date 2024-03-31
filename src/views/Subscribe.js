@@ -1,11 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import "../styles/Subscribe.css"
+import { useTranslation } from 'react-i18next'; // Import useTranslation from react-i18next
+import "../styles/Subscribe.css";
 import { GrLinkNext } from "react-icons/gr";
 import { GrLinkPrevious } from "react-icons/gr";
 import { FiLogIn } from "react-icons/fi";
 
 export default function Subscribe() {
+  const { t } = useTranslation(); // Initialize useTranslation hook
+
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [nationality, setNationality] = useState('');
@@ -15,20 +18,21 @@ export default function Subscribe() {
   const [gender, setGender] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [step, setStep] = useState(1);
-  const [countries,setCountries]=useState([])
-    useEffect(()=>{
-        axios.get("https://restcountries.com/v3.1/all")
-        .then(response=>{
-           const  countriesList=response.data.map(country=>{return country.name.common})
-            setCountries(countriesList)
-        })
-        .catch(error=>{
-            console.log("failed to load countries")
-        })
-    },[])
+  const [countries, setCountries] = useState([]);
+  
+  useEffect(() => {
+    axios.get("https://restcountries.com/v3.1/all")
+      .then(response => {
+        const countriesList = response.data.map(country => country.name.common);
+        setCountries(countriesList);
+      })
+      .catch(error => {
+        console.log(t("messages.failedToLoadCountries")); // Use translation for error message
+      });
+  }, [t]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you can handle the form submission, e.g., send data to a server
     console.log({
       firstName,
       lastName,
@@ -58,53 +62,49 @@ export default function Subscribe() {
             <>
               <div className='mb-3'>
                 <label htmlFor='firstNameInput' className='form-label'>
-                  First Name
+                  {t("labels.firstName")}
                 </label>
                 <input
                   type='text'
                   className='form-control'
                   id='firstNameInput'
-                  placeholder='Enter your first name'
+                  placeholder={t("placeholders.firstName")}
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                 />
               </div>
               <div className='mb-3'>
                 <label htmlFor='lastNameInput' className='form-label'>
-                  Last Name
+                  {t("labels.lastName")}
                 </label>
                 <input
                   type='text'
                   className='form-control'
                   id='lastNameInput'
-                  placeholder='Enter your last name'
+                  placeholder={t("placeholders.lastName")}
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                 />
               </div>
               <div className='mb-3'>
                 <label htmlFor='nationalityInput' className='form-label'>
-                  Nationality
+                  {t("labels.nationality")}
                 </label>
                 <select
                     name="nationalityInput"
                     id="nationalityInput"
                     onChange={(e) => setNationality(e.target.value)}
                     className='form-control'
-                    >
-                    {countries.map((country, index) => {
-                        return (
-                        <option key={index} value={country}>
-                            {country}
-                        </option>
-                        );
-                    })}
-                    </select>
-             
+                >
+                  <option value="">{t("placeholders.nationality")}</option>
+                  {countries.map((country, index) => (
+                    <option key={index} value={country}>{country}</option>
+                  ))}
+                </select>
               </div>
              <div className="col-12 d-flex justify-content-end">
              <button type='button' className='btn btn-primary nextBtn' onClick={handleNextStep}>
-             Next Step
+             {t("labels.nextStep")}
               <GrLinkNext className='mx-1'></GrLinkNext>
               </button>
              </div>
@@ -114,33 +114,33 @@ export default function Subscribe() {
             <>
               <div className='mb-3'>
                 <label htmlFor='passwordInput' className='form-label'>
-                  Password
+                  {t("labels.password")}
                 </label>
                 <input
                   type='password'
                   className='form-control'
                   id='passwordInput'
-                  placeholder='Enter your password'
+                  placeholder={t("placeholders.password")}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
               <div className='mb-3'>
                 <label htmlFor='confirmPasswordInput' className='form-label'>
-                  Confirm Password
+                  {t("labels.confirmPassword")}
                 </label>
                 <input
                   type='password'
                   className='form-control'
                   id='confirmPasswordInput'
-                  placeholder='Confirm your password'
+                  placeholder={t("placeholders.confirmPassword")}
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
               </div>
               <div className='mb-3'>
                 <label htmlFor='birthdateInput' className='form-label'>
-                  Birthdate
+                  {t("labels.birthdate")}
                 </label>
                 <input
                   type='date'
@@ -152,7 +152,7 @@ export default function Subscribe() {
               </div>
               <div className='mb-3'>
                 <label htmlFor='genderInput' className='form-label'>
-                  Gender
+                  {t("labels.gender")}
                 </label>
                 <select
                   className='form-select'
@@ -160,21 +160,21 @@ export default function Subscribe() {
                   value={gender}
                   onChange={(e) => setGender(e.target.value)}
                 >
-                  <option value=''>Select gender</option>
-                  <option value='male'>Male</option>
-                  <option value='female'>Female</option>
-                  <option value='other'>Other</option>
+                  <option value=''>{t("options.gender.default")}</option>
+                  <option value='male'>{t("options.gender.male")}</option>
+                  <option value='female'>{t("options.gender.female")}</option>
+                  <option value='other'>{t("options.gender.other")}</option>
                 </select>
               </div>
               <div className='mb-3'>
                 <label htmlFor='phoneInput' className='form-label'>
-                  Phone Number
+                  {t("labels.phoneNumber")}
                 </label>
                 <input
                   type='tel'
                   className='form-control'
                   id='phoneInput'
-                  placeholder='Enter your phone number'
+                  placeholder={t("placeholders.phoneNumber")}
                   value={phoneNumber}
                   onChange={(e) => setPhoneNumber(e.target.value)}
                 />
@@ -182,15 +182,13 @@ export default function Subscribe() {
               <div className="col-12 d-flex gap-2 justify-content-end">
                 <button type='button' className='btn btn-secondary mr-2 previousBtn p-2' onClick={handlePrevStep}>
                 <GrLinkPrevious className='mx-1'></GrLinkPrevious>
-                Previous
+                {t("labels.previousStep")}
               </button>
               <button type='submit' className='btn btn-primary submitBtn'>
-                Sign Up
+                {t("labels.signUp")}
                 <FiLogIn className='mx-1 fs-4'></FiLogIn>
-
               </button>
               </div>
-              
             </>
           )}
         </form>

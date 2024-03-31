@@ -4,8 +4,10 @@ import { IoCheckmarkDoneSharp } from "react-icons/io5";
 import { AiOutlineUser, AiOutlinePhone, AiOutlineMail } from "react-icons/ai";
 import { MdInsertDriveFile } from "react-icons/md";
 import "../styles/servicesStyle.css";
+import { useTranslation } from 'react-i18next';
 
 const VehicleInsuranceForm = () => {
+  const { t } = useTranslation();
   const [serviceType, setServiceType] = useState('');
   const [driverLicenseFile, setDriverLicenseFile] = useState(null);
   const [vehicleLicenseFile, setVehicleLicenseFile] = useState(null);
@@ -23,12 +25,12 @@ const VehicleInsuranceForm = () => {
     <>
       <Navbar />
       <div className="container fillFormContainer" style={{ marginTop: "10vh" }}>
-        <h2 className='specialText fs-3 text-md-center'>Vehicle Insurance - Bahrain</h2>
+        <h2 className='specialText fs-3 text-md-center'>{t('vehicleInsurance')}</h2>
         <form onSubmit={handleSubmit} className='fillForm'>
        
          
           <div className="form-group mt-2">
-            <label htmlFor="driverLicenseFile"><MdInsertDriveFile className='specialText fs-3' /> Driver's License (Form)</label>
+            <label htmlFor="driverLicenseFile"><MdInsertDriveFile className='specialText fs-3' /> {t('driversLicenseForm')}</label>
             <div className="custom-file">
               <input
                 type="file"
@@ -39,11 +41,11 @@ const VehicleInsuranceForm = () => {
               />
               <button className="btn custom-file-label submitBtn text-white" htmlFor="driverLicenseFile" onClick={()=>{
                 document.getElementById("driverLicenseFile").click()
-              }}>Choose file</button>
+              }}>{t('chooseFile')}</button>
             </div>
           </div>
           <div className="form-group mt-2">
-            <label htmlFor="vehicleLicenseFile"><MdInsertDriveFile className='specialText fs-3' /> Vehicle License (Form)</label>
+            <label htmlFor="vehicleLicenseFile"><MdInsertDriveFile className='specialText fs-3' /> {t('vehicleLicenseForm')}</label>
             <div className="custom-file">
               <input
                 type="file"
@@ -54,49 +56,49 @@ const VehicleInsuranceForm = () => {
               />
               <button className="btn custom-file-label submitBtn text-white" htmlFor="vehicleLicenseFile" onClick={()=>{
                 document.getElementById("vehicleLicenseFile").click()
-              }}>Choose file</button>
+              }}>{t('chooseFile')}</button>
             </div>
           </div>
           <div className="form-group mt-2">
-            <label htmlFor="applicantName"><AiOutlineUser className='specialText fs-3' /> Applicant Name</label>
+            <label htmlFor="applicantName"><AiOutlineUser className='specialText fs-3' /> {t('applicantName')}</label>
             <input
               type="text"
               className="form-control"
               id="applicantName"
-              placeholder="Enter Applicant Name"
+              placeholder={t('enterApplicantName')}
               value={applicantName}
               onChange={(e) => setApplicantName(e.target.value)}
             />
           </div>
           <div className="form-group mt-2">
-            <label htmlFor="phoneNumber"><AiOutlinePhone className='specialText fs-3' /> Phone Number</label>
+            <label htmlFor="phoneNumber"><AiOutlinePhone className='specialText fs-3' /> {t('phoneNumber')}</label>
             <input
               type="tel"
               className="form-control"
               id="phoneNumber"
-              placeholder="Enter Phone Number"
+              placeholder={t('enterPhoneNumber')}
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
             />
           </div>
           <div className="form-group mt-2">
-            <label htmlFor="email"><AiOutlineMail className='specialText fs-3' /> Email Address</label>
+            <label htmlFor="email"><AiOutlineMail className='specialText fs-3' /> {t('emailAddress')}</label>
             <input
               type="email"
               className="form-control"
               id="email"
-              placeholder="Enter Email Address"
+              placeholder={t('enterEmailAddress')}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="container d-flex justify-content-center flex-column align-items-center mt-2">
-            <h1 className='serviceFee fs-4'>Service Cost</h1>
-            <p className='priceText specialText fs-5'>Service fee including tax:</p>
-            <p className='priceNotes fs-6'>(3 days: 30 Saudi Riyals, 5 days: 50 Saudi Riyals, 10 days: 85 Saudi Riyals)</p>
+            <h1 className='serviceFee fs-4'>{t('serviceCost')}</h1>
+            <p className='priceText specialText fs-5'>{t('serviceFeeIncludingTax')}</p>
+            <p className='priceNotes fs-6'>{t('priceNotesVeh')}</p>
           </div>
           <div className="container d-flex justify-content-center mt-3">
-            <button type="submit" className="btn btn-primary btn-success">Submit Request <IoCheckmarkDoneSharp className='fs-4' /></button>
+            <button type="submit" className="btn btn-primary btn-success">{t('submitRequest')} <IoCheckmarkDoneSharp className='fs-4' /></button>
           </div>
         </form>
       </div>

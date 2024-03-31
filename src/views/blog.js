@@ -4,73 +4,76 @@ import { FaRegClock } from "react-icons/fa6";
 import mainArticlePhoto from "../images/london.jpg"
 import amesterdamPhoto from "../images/amesterdam.jpg"
 import sushi from "../images/sushi.jpg"
+import italy from "../images/italy.jpg"
 import ireland from "../images/irelland.jpg"
 import { FaLocationArrow } from "react-icons/fa";
+import { useTranslation } from 'react-i18next'; // Import useTranslation hook for translations
+
 export default function Blog() {
+  const { t } = useTranslation(); // Initialize useTranslation hook
+
+const cardData = [
+  { 
+    image: amesterdamPhoto,
+    title: t('amsterdam_exploration', 'Amsterdam Exploration'),
+    description: t('amsterdam_description', 'Discover the vibrant culture and picturesque scenery of Amsterdam, Netherlands, as you wander through its charming streets and iconic landmarks.')
+  },
+  { 
+    image: sushi,
+    title: t('sushi_delights', 'Sushi Delights'),
+    description: t('sushi_description', 'Treat yourself to a culinary journey through the flavors of Japan with our selection of fresh sushi and traditional delicacies.')
+  },
+  { 
+    image: ireland,
+    title: t('irish_adventure', 'Irish Adventure'),
+    description: t('ireland_description', 'Experience the magic of Ireland with its breathtaking landscapes, rich history, and lively culture, making it an unforgettable destination.')
+  },
+  { 
+    image: italy,
+    title: t('italian_escapade', 'Italian Escapade'),
+    description: t('italy_description', 'Indulge in the romance and charm of Italy as you explore its historic cities, savor authentic cuisine, and soak in the beauty of its scenic countryside.')
+  }
+];
+
   return (
     <div className="blog m-0 p-2" >
-        <h1 id='blog'>Read Our <span className='specialText'>Blog</span></h1>
-        <div className="articles ">
-            <div className="mainArticle d-flex gap-3">
-                <div className="articlePhoto">
+        <h1 id='blog'>{t('read_our')} <span className='specialText'>{t('blog')}</span></h1>
+        <div className="articles container">
+        <div className="mainArticle gap-3">
+            <div className="articlePhoto">
                     <img src={mainArticlePhoto} className='mainArticlePhoto' alt="" />
                 </div>
                 <div className="articleDescription d-flex flex-column justify-content-center">
                     <div className="labels d-flex gap-2">
                         <div className="label specialText">
-                            United Kingdom
+                            {t('United Kingdom')}
                         </div>
                         <div className="label">
                            <FaRegClock className='clockIcon mx-2'/>
-                            <span className='specialText p-1 m-0'>2 Minutes</span>
+                            <span className='specialText p-1 m-0'>2 {t('Minutes')}</span>
                         </div>
                     </div>
                     <div className="article d-flex flex-column  gap-2 my-1">
-                        <h2 className='mt-2'>The New London restaurants to try in january 2024</h2>
-                        <p className='text-muted'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore nemo quo perspiciatis veniam quibusdam possimus, ipsam eum velit voluptatem exercitationem, dolor repellat voluptates corporis delectus eius. Quia, similique accusamus nobis assumenda beatae id aut, esse optio distinctio modi corrupti. Quo assumenda earum vero. Deserunt dolorum illum perspiciatis. Accusantium quam ratione totam magnam!</p>
-                        <buttton className="btn btn-primary learnMoreBtn col-2">Learn more<FaLocationArrow className='mx-2'/></buttton>
+                        <h2 className='mt-2'>{t('new_london_restaurants')}</h2>
+                        <p className='text-muted'>{t('new_london_restaurants_descritpion')}</p>
+                        <buttton className="btn btn-primary learnMoreBtn col-2">{t('learn_more')}<FaLocationArrow className='mx-2'/></buttton>
 
                     </div>
                 </div>
             </div>
-            <div className="secondarryArticles d-flex justify-content-start gap-2 p-1  my-2">
-            <div className="card m-0 p-0" style={{width:'25%'}}  >
-            <img src={amesterdamPhoto} className="card-img-top" alt={`Tour`} />
-            <div className="card-body">
-              <h5 className="card-title  fw-medium">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h5>
-              <p className="card-text tourDescription fw-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, voluptas!</p>
-              <buttton className="btn btn-primary learnMoreBtn col-2">Learn more<FaLocationArrow className='mx-2'/></buttton>
+            <div className="secondarryArticles row justify-content-start gap-1 p-1 my-2">
+                {cardData.map((card, index) => (
+                    <div key={index} className="card col-lg m-0 p-0">
+                        <img src={card.image} className="card-img-top" alt={`Tour`} />
+                        <div className="card-body">
+                            <h5 className="card-title fw-medium">{t(`${card.title}`)}</h5>
+                            <p className="card-text tourDescription fw-normal">{t(`${card.description}`)}</p>
+                            <button className="btn btn-primary learnMoreBtn col-12">{t('learn_more')}<FaLocationArrow className='mx-2'/></button>
+                        </div>
+                    </div>
+                ))}
             </div>
-          </div>
-          <div className="card m-0 p-0" style={{width:'25%'}}  >
-            <img src={sushi} className="card-img-top" alt={`Tour`} />
-            <div className="card-body">
-              <h5 className="card-title  fw-medium">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h5>
-              <p className="card-text tourDescription fw-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, nemo!</p>
-              <buttton className="btn btn-primary learnMoreBtn col-2">Learn more<FaLocationArrow className='mx-2'/></buttton>
-            </div>
-          </div>
-          <div className="card m-0 p-0" style={{width:'25%'}}  >
-            <img src={ireland} className="card-img-top" alt={`Tour`} />
-            <div className="card-body">
-              <h5 className="card-title  fw-medium">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h5>
-              <p className="card-text tourDescription fw-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, sunt?</p>
-              <buttton className="btn btn-primary learnMoreBtn col-2">Learn more<FaLocationArrow className='mx-2'/></buttton>
-
-            </div>
-          </div>
-          <div className="card m-0 p-0" style={{width:'25%'}}  >
-            <img src={sushi} className="card-img-top" alt={`Tour`} />
-            <div className="card-body">
-              <h5 className="card-title  fw-medium">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h5>
-              <p className="card-text tourDescription fw-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, sunt?</p>
-                                     <buttton className="btn btn-primary learnMoreBtn col-2">Learn more<FaLocationArrow className='mx-2'/></buttton>
-
-            </div>
-          </div>
-            </div>
-           
-        </div>
+      </div>
     </div>
   )
 }

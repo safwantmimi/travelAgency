@@ -196,7 +196,7 @@ var countries = [
   {
     path: 'web-vn.png',
     countryName: 'Vietnam',
-    visaTypes: ["Month Tourist , single Entry for Saudis 1 ","Month Tourist , multiple Entry for Saudis 3 "],
+    visaTypes: ["1 Month Tourist , single Entry for Saudis","3 Month Tourist , multiple Entry for Saudis"],
     pricePerPerson: 121
   }
 ]

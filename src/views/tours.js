@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Rating } from '@mui/material/';
 import { BiExpandAlt } from "react-icons/bi";
 import "../styles/tours.css";
-
+import { useTranslation } from 'react-i18next'; // Import useTranslation hook
 const tourData = [
   { 
     image: require("../images/uk.jpg"), 
@@ -85,6 +85,7 @@ const tourData = [
 ];
 
 export default function Tours() {
+  const { t } = useTranslation(); // Initialize useTranslation hook
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
@@ -102,35 +103,35 @@ export default function Tours() {
 
   return (
     <div className={`tours p-2 m-0 ${imagesLoaded ? 'loaded' : ''}`}>
-      <h1 id='tours'>Available <span className="specialText">Tours</span></h1>
-      <div className="row m-0 p-0 toursList d-flex gap-3 justify-content-center">
-        {tourData.map((tour, index) => (
-          <div className="card m-0 p-0 col-lg-3 col-md-4 col-sm-5" key={index}>
-            <img 
-              src={tour.image} 
-              className={`card-img-top ${imagesLoaded ? 'loaded' : ''}`} 
-              alt={`Tour ${index + 1}`} 
-            />
-            <div className="card-body">
-              <h5 className="card-title tourDuration fw-normal">7 days</h5>
-              <p className="card-text tourDescription fw-medium">{tour.country}</p>
-              <div className="container-fluid d-flex gap-2">
-                <Rating
-                  name={`rating-${index}`}
-                  value={tour.rating}
-                  precision={0.5}
-                  readOnly
-                  className='rating'
-                />
-              </div>
-              <div className="container-fluid d-flex justify-content-between align-items-baseline">
-                <p>From <span className='tourPrice'>${tour.price}</span></p>
-                <a href="#" className="btn btn-primary s-flex justify-content-end m-1" id="viewTourButtons"> Details &nbsp;&nbsp;<BiExpandAlt className='fs-5 '/></a>
-              </div>
+        <h1 id='tours'>{t('availableTours')} <span className="specialText">{t('tours')}</span></h1>
+    <div className="row m-0 p-0 toursList d-flex gap-3 justify-content-center">
+      {tourData.map((tour, index) => (
+        <div className="card m-0 p-0 col-lg-3 col-md-4 col-sm-5" key={index}>
+          <img 
+            src={tour.image} 
+            className={`card-img-top ${imagesLoaded ? 'loaded' : ''}`} 
+            alt={`Tour ${index + 1}`} 
+          />
+          <div className="card-body">
+            {/* <h5 className="card-title tourDuration fw-normal">{t('tourDu  ration')}</h5> */}
+            <p className="card-text tourDescription fw-medium">{t(tour.country)}</p>
+            <div className="container-fluid d-flex gap-2">
+              <Rating
+                name={`rating-${index}`}
+                value={tour.rating}
+                precision={0.5}
+                readOnly
+                className='rating'
+              />
+            </div>
+            <div className="container-fluid d-flex justify-content-between align-items-baseline">
+              <p>{t('from')} <span className='tourPrice'>${tour.price}</span></p>
+              <a href="#" className="btn btn-primary s-flex justify-content-end m-1" id="viewTourButtons"> {t('details')} &nbsp;&nbsp;<BiExpandAlt className='fs-5 '/></a>
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
+  </div>
   );
 }

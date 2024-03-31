@@ -6,10 +6,12 @@ import { useState, forwardRef } from 'react';
 import './authEmailAndOtp.css';
 import { FaPhone } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
+import { useTranslation } from 'react-i18next'; // Import useTranslation hook for translations
 
 const AuthEmailAndOtp = forwardRef((props, ref) => {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(true); // Initially select the Email Address button
+  const { t } = useTranslation(); // Initialize useTranslation hook
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false); // Function to close the modal
@@ -18,7 +20,7 @@ const AuthEmailAndOtp = forwardRef((props, ref) => {
   return (
     <div>
       <Button className='d-none' onClick={handleOpen} ref={ref}>
-        Open modal
+        {t('open_modal', 'Open modal')}
       </Button>
       <Modal
         open={open}
@@ -27,20 +29,20 @@ const AuthEmailAndOtp = forwardRef((props, ref) => {
         aria-describedby='modal-modal-description'
       >
         <Box className='modalBox'>
-          <h1 className='text-center specialText fs-3'>First Service Travel</h1>
-          <p className='text-center'>Logging in to a Direct account.</p>
-          <p className='specialText'>Login using</p>
+          <h1 className='text-center specialText fs-3'>{t('first_service_travel', 'First Service Travel')}</h1>
+          <p className='text-center'>{t('login_direct_account', 'Logging in to a Direct account.')}</p>
+          <p className='specialText'>{t('login_using', 'Login using')}</p>
           <button
             className={`btn ${selected ? 'selected' : 'notSelected'}`}
             onClick={handleToggle}
           >
-            Email Address
+            {t('email_address', 'Email Address')}
           </button>
           <button
             className={`btn ${selected ? 'notSelected' : 'selected'}`}
             onClick={handleToggle}
           >
-            Phone Number
+            {t('phone_number', 'Phone Number')}
           </button>
           
           {selected ? (
@@ -54,7 +56,7 @@ const AuthEmailAndOtp = forwardRef((props, ref) => {
                 <input
                   type='text'
                   className='form-control h-75 rounded-1'
-                  placeholder='your email address please '
+                  placeholder={t('email_placeholder', 'your email address please ')}
                   aria-label='Username'
                   aria-describedby='basic-addon1'
                   id='emailInput'
@@ -68,12 +70,12 @@ const AuthEmailAndOtp = forwardRef((props, ref) => {
                   id='flexCheckDefault'
                 />
                 <label className='form-check-label' htmlFor='flexCheckDefault'>
-                  Remember me
+                  {t('remember_me', 'Remember me')}
                 </label>
               </div>
               <div className="container-fluid mt-2 d-flex justify-content-center d-flex flex-column">
-                <button className="btn continueVia">Continue Via Email</button>
-                <button className="btn btn-outline-dark outline-dark mt-2">Sign In With Password</button>
+                <button className="btn continueVia">{t('continue_via_email', 'Continue Via Email')}</button>
+                <button className="btn btn-outline-dark outline-dark mt-2">{t('sign_in_with_password', 'Sign In With Password')}</button>
               </div>
             </section>
           ) : (
@@ -87,7 +89,7 @@ const AuthEmailAndOtp = forwardRef((props, ref) => {
                 <input
                   type='tel' 
                   className='form-control h-75 rounded-1'
-                  placeholder='your phone number please'
+                  placeholder={t('phone_placeholder', 'your phone number please')}
                   aria-label='Phone Number'
                   aria-describedby='basic-addon1'
                   id='phoneInput'
@@ -101,12 +103,12 @@ const AuthEmailAndOtp = forwardRef((props, ref) => {
                   id='flexCheckDefault'
                 />
                 <label className='form-check-label' htmlFor='flexCheckDefault'>
-                  Remember me
+                  {t('remember_me', 'Remember me')}
                 </label>
               </div>
               <div className="container-fluid mt-2 d-flex justify-content-center d-flex flex-column">
-                <button className="btn continueVia">Continue Via Phone</button>
-                <button className="btn btn-outline-dark outline-dark mt-2">Sign In With Password</button>
+                <button className="btn continueVia">{t('continue_via_phone', 'Continue Via Phone')}</button>
+                <button className="btn btn-outline-dark outline-dark mt-2">{t('sign_in_with_password', 'Sign In With Password')}</button>
               </div>
             </section>
           )}

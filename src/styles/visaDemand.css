@@ -113,7 +113,8 @@ font-size: 1rem !important;
 }
 .dropDownContainer
 {
-    width: 300px !important;
+    width: 270px !important;
+    inset: 12px auto auto -58px !important;
 }
 .visaTypeButton
 {

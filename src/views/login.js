@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/login.css';
 import userImage from "../images/fingerprint.png";
+import { useTranslation } from 'react-i18next';
 
 export default function Login() {
+  const { t } = useTranslation();
   const [user, setUser] = useState({});
 
   const handleInputChange = (field, value) => {
@@ -23,29 +25,29 @@ export default function Login() {
           </div>
           <div className='mb-3'>
             <label htmlFor='emailInput' className='form-label'>
-              Email address
+              {t('Email address', 'Email address')}
             </label>
             <input
               type='email'
               className='form-control'
               id='emailInput'
               aria-describedby='emailHelp'
-              placeholder='Enter your email'
+              placeholder={t('Enter your email', 'Enter your email')}
               onChange={(event) => { handleInputChange('email', event.target.value) }}
             />
             <div id='emailHelp' className='form-text'>
-              We'll never share your email with anyone else.
+              {t("We'll never share your email with anyone else.", "We'll never share your email with anyone else.")}
             </div>
           </div>
           <div className='mb-3'>
             <label htmlFor='passwordInput' className='form-label'>
-              Password
+              {t('Password', 'Password')}
             </label>
             <input
               type='password'
               className='form-control'
               id='passwordInput'
-              placeholder='Enter your password'
+              placeholder={t('Enter your password', 'Enter your password')}
               onChange={(event) => { handleInputChange('password', event.target.value) }}
             />
           </div>
@@ -57,19 +59,19 @@ export default function Login() {
                 id='exampleCheck1'
               />
               <label className='form-check-label' htmlFor='exampleCheck1'>
-                Check me out
+                {t('Check me out', 'Check me out')}
               </label>
             </div>
             <div className='mb-3 form-check'>
               <label className='form-check-label fw-semibold specialText' htmlFor=''>
-                Forgot Password ?
+                {t('Forgot Password ?', 'Forgot Password ?')}
               </label>
             </div>
           </div>
           <button type='submit' className='btn btn-primary submitBTN' onClick={(event) => { userConnect(event) }}>
-            Sign In
+            {t('Sign In', 'Sign In')}
           </button>
-          <p>Not registered yet ? <span className='fw-semibold specialText'> Create account</span> </p>
+          <p>{t('Not registered yet ?', 'Not registered yet ?')} <span className='fw-semibold specialText'> {t('Create account', 'Create account')}</span> </p>
         </form>
       </div>
     </div>

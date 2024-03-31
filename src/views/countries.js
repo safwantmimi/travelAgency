@@ -1,5 +1,6 @@
 import React from 'react';
 import "../styles/countries.css";
+import { useTranslation } from 'react-i18next'; // Import useTranslation hook for translations
 
 const countryList = [
   "United Kingdom",
@@ -34,14 +35,16 @@ const pictures = [
 ];
 
 export default function Countries() {
+  const { t } = useTranslation(); // Initialize useTranslation hook
+
   return (
-    <div className="countriesList row p-2 m-0 d-flex gap-2 justify-content-center" >
-      <h1 id='destinations'><span className='specialText'>Countries </span>travel to </h1>
+    <div className="countriesList row container p-2 gap-2 justify-content-center" >
+      <h1 id='destinations'><span className='specialText'>{t('countries')}</span> {t('travel_to')}</h1>
       {countryList.map((country, index) => (
         <div key={index} className="country d-flex p-2 gap-2 align-items-center col-lg-3">
           <div className="flag" style={{ backgroundImage: `url(${pictures[index]})` }}></div>
           <div className="countryName fs-5 pe-2">
-            {country}
+            {t(country)}
           </div>
         </div>
       ))}

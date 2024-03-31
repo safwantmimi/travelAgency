@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import Slider from 'react-slick';
+import { useTranslation } from 'react-i18next'; // Import useTranslation hook
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import "../styles/services.css";
@@ -32,44 +33,46 @@ const serviceImages = [
   { src: uaeVisa, alt: "UAE Visa" },
 ];
 
-const servicesDescription = [
-  "International License C",
-  "Bahrain Visa",
-  "Travel Form Filling",
-  "International License N",
-  "IELTS",
-  "Passport Renewal ",
-  "University Acceptance",
-  "Resident Passport",
-  "Vehicle Insurance",
-  "Qatari's Visa",
-  "Translation",
-  "UAE Visa",
-];
-const servicesRoutes = [
-  "InternationalLicense",
-  "BahrainVisa",
-  "TravelFormFilling",
-  "InternationalLicense",
-  "IELTS",
-  "PassportRenewal",
-  "UniversityAcceptance",
-  "ResidentPassport",
-  "VehicleInsurance",
-  "QatariVisa",
-  "Translation",
-  "UAEVisa",
-];
+const Services = () => {
+  const { t } = useTranslation(); // Use the useTranslation hook
 
-export default function Services() {
+  const servicesDescription = [
+    t('International License C'),
+    t('Bahrain Visa'),
+    t('Travel Form Filling'),
+    t('International License N'),
+    t('IELTS'),
+    t('Passport Renewal'),
+    t('University Acceptance'),
+    t('Resident Passport'),
+    t('Vehicle Insurance'),
+    t("Qatari's Visa"),
+    t('Translation'),
+    t('UAE Visa'),
+  ];
+  const servicesRoutes = [
+    "InternationalLicense",
+    "BahrainVisa",
+    "TravelFormFilling",
+    "InternationalLicense",
+    "IELTS",
+    "PassportRenewal",
+    "UniversityAcceptance",
+    "ResidentPassport",
+    "VehicleInsurance",
+    "QatariVisa",
+    "Translation",
+    "UAEVisa",
+  ];
+
   const settings = {
     dots: true,
-    infinite: true, // Set infinite to false
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
+    speed: 1000,
+    slidesToShow: 5,
+    slidesToScroll: 5,
+    infinite: true,
     autoplay: true,
-    stopOnFocus: false,
+    autoplaySpeed: 1500,
     // Adjusting responsive settings to avoid white space at the end
     responsive: [
       {
@@ -98,21 +101,22 @@ export default function Services() {
       }
     ]
   };
-  
 
   return (
     <div className="m-0 mt-2 p-0">
-      <h1 className='text-center'>Discover More With Our Premium <span className="specialText">Services</span> </h1>
+      <h1 className='text-center'>{t('Discover More With Our Premium')} <span className="specialText">{t('Services')}</span></h1>
       <Slider {...settings} className='slider d-flex flex-nowrap m-0 p-0'>
         {serviceImages.map((service, index) => (
-          <Link to={`${servicesRoutes[index]}`} key={index} className="service-link">
-            <div className="card serviceCard p-0 m-0" >
+          <div className="card serviceCard p-0 m-0" >
               <img className="card-img-top m-0 p-0" src={service.src} alt={service.alt} />
-              <div className="card-footer serviceCardFooter text-center">{servicesDescription[index]}</div>
+              <Link to={`${servicesRoutes[index]}`} key={index} className="service-link">
+                <div className="card-footer serviceCardFooter text-center">{servicesDescription[index]}</div>
+              </Link> 
             </div>
-          </Link>
         ))}
       </Slider>
     </div>
   );
 }
+
+export default Services;

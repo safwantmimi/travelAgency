@@ -3,9 +3,11 @@ import Navbar from '../components/navbar';
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
 import { AiOutlineUser, AiOutlinePhone, AiOutlineMail } from "react-icons/ai";
 import { MdLocationOn } from "react-icons/md";
+import { useTranslation } from 'react-i18next';
 import "../styles/servicesStyle.css";
 
 const NewServiceForm = () => {
+  const { t } = useTranslation();
   const [serviceType, setServiceType] = useState('');
   const [numberOfServices, setNumberOfServices] = useState(1);
   const [deliveryMethod, setDeliveryMethod] = useState('');
@@ -23,72 +25,72 @@ const NewServiceForm = () => {
     <>
       <Navbar />
       <div className="container fillFormContainer" style={{ marginTop: "10vh" }}>
-        <h2 className='specialText fs-3 text-md-center'>International Licence Notebook</h2>
+        <h2 className='specialText fs-3 text-md-center'>{t('International Licence Notebook', 'International Licence Notebook')}</h2>
         <form onSubmit={handleSubmit} className='fillForm'>
         
           <div className="form-group mt-2">
-            <label htmlFor="numberOfServices">Number of Licences</label>
+            <label htmlFor="numberOfServices">{t('Number of Licences', 'Number of Licences')}</label>
             <input
               type="number"
               min={1}
               className="form-control"
               id="numberOfServices"
-              placeholder="Enter Number of Services"
+              placeholder={t('Enter Number of Services', 'Enter Number of Services')}
               value={numberOfServices}
               onChange={(e) => setNumberOfServices(e.target.value)}
             />
           </div>
           <div className="form-group mt-2">
-            <label htmlFor="deliveryMethod"><MdLocationOn className='specialText fs-3'/> How Would You Like to Receive the Service?</label>
+            <label htmlFor="deliveryMethod"><MdLocationOn className='specialText fs-3'/> {t('How Would You Like to Receive the Service?', 'How Would You Like to Receive the Service?')}</label>
             <input
               type="text"
               className="form-control"
               id="deliveryMethod"
-              placeholder="Enter Delivery Method"
+              placeholder={t('Enter Delivery Method', 'Enter Delivery Method')}
               value={deliveryMethod}
               onChange={(e) => setDeliveryMethod(e.target.value)}
             />
           </div>
           <div className="form-group mt-2">
-            <label htmlFor="applicantName"><AiOutlineUser className='specialText fs-3'/> Applicant Name</label>
+            <label htmlFor="applicantName"><AiOutlineUser className='specialText fs-3'/> {t('Applicant Name', 'Applicant Name')}</label>
             <input
               type="text"
               className="form-control"
               id="applicantName"
-              placeholder="Enter Applicant Name"
+              placeholder={t('Enter Applicant Name', 'Enter Applicant Name')}
               value={applicantName}
               onChange={(e) => setApplicantName(e.target.value)}
             />
           </div>
           <div className="form-group mt-2">
-            <label htmlFor="phoneNumber"><AiOutlinePhone className='specialText fs-3'/> Phone Number</label>
+            <label htmlFor="phoneNumber"><AiOutlinePhone className='specialText fs-3'/> {t('Phone Number', 'Phone Number')}</label>
             <input
               type="tel"
               className="form-control"
               id="phoneNumber"
-              placeholder="Enter Phone Number"
+              placeholder={t('Enter Phone Number', 'Enter Phone Number')}
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
             />
           </div>
           <div className="form-group mt-2">
-            <label htmlFor="email"><AiOutlineMail className='specialText fs-3'/> Email Address</label>
+            <label htmlFor="email"><AiOutlineMail className='specialText fs-3'/> {t('Email Address', 'Email Address')}</label>
             <input
               type="email"
               className="form-control"
               id="email"
-              placeholder="Enter Email Address"
+              placeholder={t('Enter Email Address', 'Enter Email Address')}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="container d-flex justify-content-center flex-column align-items-center mt-2">
-            <h1 className='serviceFee fs-4'>Service Cost</h1>
-            <p className='priceText specialText fs-5'>119 Saudi Riyals</p>
-            <p className='priceNotes fs-6'>(Price includes: Service fees, issuance of the international license, and receipt at one of our branches. Does not include delivery fees to home)</p>
+            <h1 className='serviceFee fs-4'>{t('Service Cost', 'Service Cost')}</h1>
+            <p className='priceText specialText fs-5'>{t('119 Saudi Riyals', '119 Saudi Riyals')}</p>
+            <p className='priceNotes fs-6'>{t('Price includes: Service fees, issuance of the international license, and receipt at one of our branches. Does not include delivery fees to home')}</p>
           </div>
           <div className="container d-flex justify-content-center mt-3">
-            <button type="submit" className="btn btn-primary btn-success">Submit Request <IoCheckmarkDoneSharp className='fs-4' /></button>
+            <button type="submit" className="btn btn-primary btn-success">{t('Submit Request', 'Submit Request')} <IoCheckmarkDoneSharp className='fs-4' /></button>
           </div>
         </form>
       </div>

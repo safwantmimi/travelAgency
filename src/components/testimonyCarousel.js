@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import "../styles/testimonials.css"
 import { Rating } from '@mui/material';
 import { MdKeyboardDoubleArrowRight, MdKeyboardDoubleArrowLeft } from "react-icons/md";
+import { useTranslation } from 'react-i18next';
 
 export default function TestimonyCarousel(props) {
+  const { t,i18n } = useTranslation();
+  const isArabic = i18n.language.includes('ar');
   const { userPhotos, userNames, userRatings, usersReviews } = props;
   var intervalId;
   const [testimonyIndex, setTestimonyIndex] = useState(0);
@@ -49,8 +52,18 @@ export default function TestimonyCarousel(props) {
         );
       })}
       <div className="navigation">
-        <button className='btn switchReviwBtn' onClick={previousItem}><MdKeyboardDoubleArrowLeft className='mx-5 fs-2 warningText' /></button>
-        <button className='btn switchReviwBtn' onClick={nextItem}><MdKeyboardDoubleArrowRight className='mx-5 fs-2 warningText' /></button>
+        {isArabic ? (
+            <>
+                  <button className='btn switchReviwBtn' onClick={previousItem}><MdKeyboardDoubleArrowRight className='mx-5 fs-2 warningText' /></button>
+              <button className='btn switchReviwBtn' onClick={nextItem}><MdKeyboardDoubleArrowLeft className='mx-5 fs-2 warningText' /></button>
+                </>
+          ) : (
+            <>
+            <button className='btn switchReviwBtn' onClick={previousItem}><MdKeyboardDoubleArrowLeft className='mx-5 fs-2 warningText' /></button>
+                  <button className='btn switchReviwBtn' onClick={nextItem}><MdKeyboardDoubleArrowRight className='mx-5 fs-2 warningText' /></button>
+            </>
+          )
+        }
       </div>
     </div>
   );
