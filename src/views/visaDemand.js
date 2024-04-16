@@ -91,6 +91,41 @@ export default function VisaDemand() {
     });
     setTotalCost(visaCost[0].pricePerPerson *noOfTraverlers);
   };
+
+  const [alertMsg, setAlertMsg] = useState('');
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try{
+
+      let obj = {
+        demandType : 'Visa Demand',
+        ...visaData
+      }
+      const response = await fetch("http://127.0.0.1:8000/api/demands/client-application", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(obj),
+        });
+
+        const responseData = await response.json();
+        setShowAlert(true);
+        setAlertMsg(responseData.message)
+    } catch (error) {
+        console.log(error)
+        setShowAlert(true);
+        setAlertMsg(error);
+    }
+    event.preventDefault();
+  };
+
+  const handleCloseAlert = () => {
+    setShowAlert(false);
+  }
+
   return (
     <>
       <Navbar />
@@ -166,6 +201,14 @@ export default function VisaDemand() {
             <span>{t('step 4')} :</span> {t('appointmentAndPayment')}
           </button>
         </div>
+        { showAlert ? (
+            <div className='row mt-5'>
+              <span className='alert alert-success text-success h2'> {t(alertMsg)} </span>
+            </div>
+
+          ) : 
+          <> </>
+        }
         <section className='stepOne d-flex justify-content-center' ref={stepOne}>
           <div className='visaStep1Container  col-lg-10 mt-2 p-0 bg-white py-2'>
             <h1 className='text-center fs-3'>
@@ -410,7 +453,7 @@ export default function VisaDemand() {
   </div>
   <div className="form-group mt-2">
     <label  className="specialText" htmlFor="inputPhoneNumber">{t('phoneNumber')}</label>
-    <input type="tel" className="form-control" id="inputPhoneNumber" placeholder={t('enterYourPhoneNumber')} />
+    <input type="text" className="form-control" id="inputPhoneNumber" placeholder={t('enterYourPhoneNumber')} />
   </div>
   <div className="form-group mt-2">
     <label  className="specialText" htmlFor="inputDateOfBirth">{t('dateOfBirth')}</label>

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './navbar.css';
 
 import logo from "../images/logo.png"
@@ -9,7 +10,6 @@ import LangSwitcher from './langSwitcher';
 
 function Navbar() {
   const { t,i18n } = useTranslation();
-  console.log(window.location.Link)
   const [activeList, setActiveList] = useState([true, false, false, false, false, false, false]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -21,6 +21,22 @@ function Navbar() {
     const newActiveList = activeList.map((item, index) => index === id);
     setActiveList(newActiveList);
   };
+
+  const [pageData, setPageData] = useState(null); // State to store fetched data
+
+  // Fetch page data on component mount
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:8000/api/pages?title=Home'); 
+        setPageData(response.data);
+      } catch (error) {
+        console.error('Error fetching page data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <nav className="navbar navbar-expand-lg align-items-baseline p-2 m-0">

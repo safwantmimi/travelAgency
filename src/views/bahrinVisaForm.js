@@ -11,18 +11,56 @@ const BahrainVisaForm = () => {
   const [applicantName, setApplicantName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
-  const { t } = useTranslation(); // Initialize useTranslation hook
+  const { t } = useTranslation(); 
+  const [alertMsg, setAlertMsg] = useState('');
+  const [showAlert, setShowAlert] = useState(false);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Handle form submission
-    console.log('Form submitted!');
+    try{
+
+      let obj = {
+        demandType : "Bahrin Visa",
+        passportCount,
+        applicantName,
+        phoneNumber,
+        email
+      }
+      const response = await fetch("http://127.0.0.1:8000/api/demands/client-application", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(obj),
+        });
+
+        const responseData = await response.json();
+        setShowAlert(true);
+        setAlertMsg(responseData.message)
+    } catch (error) {
+        console.log(error)
+        setShowAlert(true);
+        setAlertMsg(error);
+    }
+    event.preventDefault();
   };
+
+  const handleCloseAlert = () => {
+    setShowAlert(false);
+  }
 
   return (
     <>
       <Navbar />
-      <div className="container fillFormContainer" style={{ marginTop: "10vh" }}>
+      <div className="container fillFormContainer" style={{ marginTop: "15vh" }}>
+        { showAlert ? (
+            <div className='row mt-5'>
+              <span className='alert alert-success text-success h2'> {t(alertMsg)} </span>
+            </div>
+
+          ) : 
+          <> </>
+        }
         <h2 className='specialText fs-3 text-md-center'>{t('bahrain_visa_residents', 'Bahrain Visa for Residents')}</h2>
         <form onSubmit={handleSubmit} className='fillForm'>
         
@@ -53,7 +91,7 @@ const BahrainVisaForm = () => {
           <div className="form-group mt-2">
             <label htmlFor="phoneNumber"><AiOutlinePhone className='specialText fs-3'/> {t('phone_number', 'Phone Number')}</label>
             <input
-              type="tel"
+              type="text"
               className="form-control"
               id="phoneNumber"
               placeholder={t('enter_phone_number', 'Enter Phone Number')}

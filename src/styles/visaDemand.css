@@ -19,7 +19,7 @@ background-color: #F5F5F5;
     border: 1px solid #eeeeee;
     border-left: none;
     border-right: none;
-    padding: 10px;
+    padding: 25px 10px !important;
 }
 .visaStep
 {

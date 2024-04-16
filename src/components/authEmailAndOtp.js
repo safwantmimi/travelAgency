@@ -12,11 +12,17 @@ const AuthEmailAndOtp = forwardRef((props, ref) => {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(true); // Initially select the Email Address button
   const { t } = useTranslation(); // Initialize useTranslation hook
-
+  const [showPassword,setShowPassword] = useState(false)
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false); // Function to close the modal
   const handleToggle = () => setSelected(!selected); // Toggle the state
 
+  const userConnect = (event) => {
+    event.preventDefault();
+    console.log(event);
+  };
+
+  const usePasswd = () => setShowPassword(!showPassword);
   return (
     <div>
       <Button className='d-none' onClick={handleOpen} ref={ref}>
@@ -62,6 +68,25 @@ const AuthEmailAndOtp = forwardRef((props, ref) => {
                   id='emailInput'
                 />
               </div>
+              { showPassword ? (
+                <div className='input-group mb-3 mt-2'>
+                  <div className='input-group-prepend'>
+                    <span className='input-group-text emailIcon h-100' id='basic-addon1'>
+                      <MdOutlineMail></MdOutlineMail>
+                    </span>
+                  </div>
+                  <input
+                    type='password'
+                    className='form-control h-75 rounded-1'
+                    placeholder={t('password_placeholder', 'your password here please ')}
+                    aria-label='Password'
+                    aria-describedby='basic-addon1'
+                    id='passwordInput'
+                  />
+                </div>
+                ) : <>
+                </>
+              }
               <div className='form-check'>
                 <input
                   className='form-check-input'
@@ -74,8 +99,8 @@ const AuthEmailAndOtp = forwardRef((props, ref) => {
                 </label>
               </div>
               <div className="container-fluid mt-2 d-flex justify-content-center d-flex flex-column">
-                <button className="btn continueVia">{t('continue_via_email', 'Continue Via Email')}</button>
-                <button className="btn btn-outline-dark outline-dark mt-2">{t('sign_in_with_password', 'Sign In With Password')}</button>
+                <button className="btn continueVia" onClick={(event) => {userConnect(event)}}>{t('continue_via_email', 'Continue Via Email')}</button>
+                <button className="btn btn-outline-dark outline-dark mt-2" onClick={usePasswd}>{t('sign_in_with_password', 'Sign In With Password')}</button>
               </div>
             </section>
           ) : (
@@ -108,7 +133,7 @@ const AuthEmailAndOtp = forwardRef((props, ref) => {
               </div>
               <div className="container-fluid mt-2 d-flex justify-content-center d-flex flex-column">
                 <button className="btn continueVia">{t('continue_via_phone', 'Continue Via Phone')}</button>
-                <button className="btn btn-outline-dark outline-dark mt-2">{t('sign_in_with_password', 'Sign In With Password')}</button>
+                <button className="btn btn-outline-dark outline-dark mt-2" onClick={usePasswd}>{t('sign_in_with_password', 'Sign In With Password')}</button>
               </div>
             </section>
           )}

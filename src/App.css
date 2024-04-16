@@ -68,3 +68,7 @@ body *:not(.slick-track):not(.slick-list){}
   justify-content: center;
   margin: auto;
 }
+
+.w-full {
+  width: 100px;
+}
