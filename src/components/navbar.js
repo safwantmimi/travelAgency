@@ -28,7 +28,7 @@ function Navbar() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/pages?title=Home'); 
+        const response = await axios.get('/api/pages?title=Home'); 
         setPageData(response.data);
       } catch (error) {
         console.error('Error fetching page data:', error);

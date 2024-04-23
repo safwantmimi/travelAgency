@@ -30,7 +30,7 @@ const PassportRenewalForm = () => {
         phoneNumber,
         email
       }
-      const response = await fetch("http://127.0.0.1:8000/api/demands/client-application", {
+      const response = await fetch("/api/demands/client-application", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
