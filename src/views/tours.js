@@ -75,12 +75,6 @@ const tourData = [
     rating: 1, 
     price: 32, 
     country: "Germany" 
-  },
-  { 
-    image: require("../images/usa.jpg"), 
-    rating: 5, 
-    price: 50, 
-    country: "United States" 
   }
 ];
 
@@ -109,7 +103,7 @@ export default function Tours() {
         <div className="card m-0 p-0 col-lg-3 col-md-4 col-sm-5" key={index}>
           <img 
             src={tour.image} 
-            className={`card-img-top ${imagesLoaded ? 'loaded' : ''}`} 
+            className={`card-img-topTour ${imagesLoaded ? 'loaded' : ''}`} 
             alt={`Tour ${index + 1}`} 
           />
           <div className="card-body">
