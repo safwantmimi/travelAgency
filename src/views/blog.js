@@ -61,10 +61,10 @@ const cardData = [
                     </div>
                 </div>
             </div>
-            <div className="secondarryArticles row justify-content-start gap-1 p-1 my-2">
+            <div className="secondarryArticles row justify-content-start align-items-start gap-1 p-1 my-2">
                 {cardData.map((card, index) => (
-                    <div key={index} className="card col-lg m-0 p-0">
-                        <img src={card.image} className="card-img-top" alt={`Tour`} />
+                    <div key={index} className="card visitCard col-lg m-0 p-0">
+                        <img src={card.image} className="card-img-top visitCardImage" alt={`Tour`} />
                         <div className="card-body">
                             <h5 className="card-title fw-medium">{t(`${card.title}`)}</h5>
                             <p className="card-text tourDescription fw-normal">{t(`${card.description}`)}</p>

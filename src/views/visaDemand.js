@@ -14,8 +14,16 @@ import '../styles/visaDemand.css';
 const countries = require('../dataSources/countries');
 
 export default function VisaDemand() {
+  const [users,setUsers]=useState([]);
+  const [user,setUser]=useState({name:'',firstName:'',email:'',phone:'',gender:'',birthdate:'',passportScan:''});
   const { t,i18n } = useTranslation();
-  const isArabic = i18n.language.includes('ar');
+  const isArabic = i18n.language.includes('ar'); 
+  const handleInputChange=(field,event)=>{
+    const newUser={...user};
+    newUser[field]=event.target.value;
+    setUser(newUser);
+    
+  }
   const [activeStates, setActiveStates] = useState([
     'visaStepActive',
     'visaStepNotActive',
@@ -35,13 +43,39 @@ export default function VisaDemand() {
     if(activePerson<visaData.noOfTraverlers)
     {
       setActivePerson(activePerson+1);
+      const NewUsersList=[...users,user] 
+      setUsers(NewUsersList);
+        setUser({
+              name: '',
+              firstName: '',
+              email: '',
+              phone: '',
+              gender: '',
+              birthdate: '',
+              passportScan: ''
+            });
     }
-    
+    else if(activePerson==visaData.noOfTraverlers)
+    {
+      setActiveStates([
+        'visaStepNotActive',
+        'visaStepNotActive',
+        'visaStepNotActive',
+        'visaStepActive'
+      ]);
+      stepOne.current.classList.add("d-none");
+      stepTwo.current.classList.add("d-none");
+      stepThree.current.classList.add("d-none");
+      stepFour.current.classList.remove("d-none");
+
+    }
+   
   };
   const HandleActivePersonMinus=()=>{
     if(activePerson>=1)
     {
       setActivePerson(activePerson-1);
+      setUser(users[activePerson-1])
     }
     
   };
@@ -196,6 +230,10 @@ export default function VisaDemand() {
                 'visaStepNotActive',
                 'visaStepActive'
               ]);
+              stepOne.current.classList.add("d-none");
+              stepTwo.current.classList.add("d-none");
+              stepThree.current.classList.add("d-none");
+              stepFour.current.classList.remove("d-none");
             }}
           >
             <span>{t('step 4')} :</span> {t('appointmentAndPayment')}
@@ -432,15 +470,15 @@ export default function VisaDemand() {
             <form>
   <div className="form-group mt-2">
     <label  className="specialText" htmlFor="inputName">{t('name')}</label>
-    <input type="text" className="form-control" id="inputName" placeholder={t('enterYourName')} />
+    <input type="text" className="form-control" id="inputName" placeholder={t('enterYourName')} onChange={(event)=>{handleInputChange('name',event)}}  value={user['name']}/>
   </div>
   <div className="form-group mt-2">
     <label  className="specialText" htmlFor="inputFirstName">{t('firstName')}</label>
-    <input type="text" className="form-control" id="inputFirstName" placeholder={t('enterYourFirstName')} />
+    <input type="text" className="form-control" id="inputFirstName" placeholder={t('enterYourFirstName')} onChange={(event)=>{handleInputChange('firstName',event)}} value={user['firstName']} />
   </div>
   <div className="form-group mt-2">
     <label  className="specialText" htmlFor="inputGender">{t('gender')}</label>
-    <select className="form-control" id="inputGender">
+    <select className="form-control" id="inputGender" onChange={(event)=>{handleInputChange('gender',event)}} value={user['gender']}>
       <option>{t('male')}</option>
       <option>{t('female')}</option>
       <option>{t('other')}</option>
@@ -448,21 +486,21 @@ export default function VisaDemand() {
   </div>
   <div className="form-group mt-2">
     <label  className="specialText" htmlFor="inputEmail">{t('emailAddress')}</label>
-    <input type="email" className="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder={t('enterEmail')} />
+    <input type="email" className="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder={t('enterEmail')} value={user['email']} onChange={(event)=>{handleInputChange('email',event)}} />
     <small id="emailHelp" className="form-text text-muted">{t('weNeverShare')}</small>
   </div>
   <div className="form-group mt-2">
     <label  className="specialText" htmlFor="inputPhoneNumber">{t('phoneNumber')}</label>
-    <input type="text" className="form-control" id="inputPhoneNumber" placeholder={t('enterYourPhoneNumber')} />
+    <input type="text" className="form-control" id="inputPhoneNumber" placeholder={t('enterYourPhoneNumber')} value={user['phone']} onChange={(event)=>{handleInputChange('phone',event)}} />
   </div>
   <div className="form-group mt-2">
     <label  className="specialText" htmlFor="inputDateOfBirth">{t('dateOfBirth')}</label>
-    <input type="date" className="form-control" id="inputDateOfBirth" />
+    <input type="date" className="form-control" id="inputDateOfBirth" onChange={(event)=>{handleInputChange('birthdate',event)}} value={user['birthdate']}/>
   </div>
   <div className="form-group mt-2">
     <label  className="specialText" htmlFor="inputPassportScan">{t('passportScan')}</label>
-    <br />
-    <input type="file" className="form-control-file" id="inputPassportScan" />
+    <br /> 
+    <input type="file" className="form-control-file" id="inputPassportScan"  onChange={(event)=>{handleInputChange('passportScan',event)}} value={user['passportScan']}/>
     <small id="passportScanHelp" className="form-text text-muted">{t('uploadScan')}</small>
   </div>
   <div className="container-fluid d-flex justify-content-center column-gap-1">
@@ -489,6 +527,57 @@ export default function VisaDemand() {
             </div>
             </div>
             </section>
+            <section className='stepFour  d-flex align-items-center flex-column d-none' ref={stepFour}>
+            <div className='visaStep1Container  col-lg-10 mt-2 p-0 bg-white py-2'>
+            <h1 className='text-center fs-3'>
+            {t('SummaryOfYourDemand')}
+              </h1>
+              <div className="col-12 p-3 mt-2 visaInformationsContainer">
+                <h1 className='specialText'>{t('travelersDetails')}</h1>
+              
+              <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">{t("applicantName")}</th>
+      <th scope="col">{t("phoneNumber")}</th>
+      <th scope="col">{t("emailAddress")}</th>
+      <th scope="col">{t("gender")}</th>
+    
+    </tr>
+  </thead>
+  <tbody>
+    {users.map((userInfo,index)=>{
+      return (
+        <tr key={index}>
+      <td scope="col">{index+1}</td>
+      <td scope="col">{userInfo.firstName+' '+userInfo.name}</td>
+      <td scope="col">{userInfo.phone}</td>
+      <td scope="col">{userInfo.email}</td>
+      <td scope="col">{userInfo.gender}</td>
+    </tr>
+      )
+    })}
+   
+  </tbody>
+</table>
+</div>
+  <div className="col-12 p-3 mt-2 visaInformationsContainer">
+  <h1 className='specialText'>{t('travelInformation')}</h1>
+  <p className='fw-normal'>{t("travelCountry")}</p>
+  <p className='specialText'>{t(visaData.country)}</p>
+  <p className='fw-normal'>{t("numberOfTravelers")}</p>
+  <p className='specialText'>{visaData.noOfTraverlers}</p>
+  <p className='fw-normal'>{t("visaType")}</p>
+  <p className='specialText'>{t(visaData.visaType)}</p>
+  <p className='fw-normal'>{t("travelDate")}</p>
+  <p className='specialText'>{visaData.visaDate}</p>
+  </div>
+    <div className='d-flex mt-2 justify-content-center'>
+      <button className="btn btn-success">Confirm Demand</button>
+    </div>
+              </div>
+          </section>
       </div>
     </>
   );

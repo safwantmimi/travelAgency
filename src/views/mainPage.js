@@ -28,13 +28,7 @@ const Loader = React.lazy(() => import('./loading'));
 export default function MainPage() {
   const [showLoader, setShowLoader] = useState(false);
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setShowLoader(false);
-  //   }, 5000);
 
-  //   return () => clearTimeout(timer);
-  // }, []);
 
   return (
     <>

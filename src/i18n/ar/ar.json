@@ -46,7 +46,7 @@
     "service_cost": "تكلفة الخدمة",
     "saudi_riyals": "259 ريال سعودي",
     "submit_request": "إرسال الطلب",
-
+    "SummaryOfYourDemand":"ملخص طلبكم" ,
 
     "read_our": "اقرأ ",
     "blog": "مدوّنتنا",
@@ -364,7 +364,7 @@
     "appointmentAndPayment": "الموعد والدفع",
     "travelersDetails": "تفاصيل المسافرين",
     "selectCountryAndVisaType": "اختيار البلد ونوع التأشيرة",
-
+    "travelInformation": "معلومات السفر",
     "Armenia": "أرمينيا",
     "Australia": "أستراليا",
     "Austria": "النمسا",
@@ -447,9 +447,11 @@
     "ireland_description": "استمتع بسحر إيرلندا مع مناظرها الساحرة وتاريخها الغني وثقافتها الحيوية، مما يجعلها وجهة لا تُنسى.",
     "italian_escapade": "رحلة إيطالية",
     "italy_description": "انغمس في الرومانسية والسحر الإيطالي أثناء استكشافك لمدنها التاريخية وتذوق المأكولات الأصيلة والاستمتاع بجمال الريف الطبيعي الخلاب.",
-
+    "visaType": "نوع التأشيرة",
     "clientApplicationSaved": "تم حفظ طلب العميل بنجاح",
-    "Client application saved successfully": "تم حفظ الطلب بنجاح"
+    "Client application saved successfully": "تم حفظ الطلب بنجاح",
+    "travelDate": "تاريخ السفر",
+    "travelCountry": "الوجهة"
 }
 
 

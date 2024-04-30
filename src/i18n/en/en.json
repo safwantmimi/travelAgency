@@ -138,7 +138,7 @@
     "Enter Resident Country": "Enter Resident Country",
     "99 Saudi Riyals": "99 Saudi Riyals",
     "(Price includes: Service fees, appointment booking, form filling. Does not include embassy fees. Passport issuance inside the embassy usually takes 7 to 30 working days)": "(Price includes: Service fees, appointment booking, form filling. Does not include embassy fees. Passport issuance inside the embassy usually takes 7 to 30 working days)",
-  
+    "visaType":"Type of Visa",
     "Passport Renewal Service": "Passport Renewal Service",
     "Country": "Country",
     "Select Country": "Select Country",
@@ -279,7 +279,7 @@
   "startVisaDemand": "Start Visa Demand",
   "expectedTravelDate": "Expected Travel Date",
   "chooseNumberOfTravelers": "Choose Number of Travelers",
-  "numberOfTravelers": "Number of Travelers",
+  "numberOfTravelers": "Number of Passengers",
   "haveCoupon": "Have Coupon?",
   "writeYourCoupon": "Please Write Your Coupon",
   "applyCoupon": "Apply Coupon",
@@ -384,7 +384,7 @@
   "nextPerson": "Next Person",
   "previousPerson": "Previous Person",
   "Price includes: Service fees, issuance of the international license, and receipt at one of our branches. Does not include delivery fees to home":"Price includes: Service fees, issuance of the international license, and receipt at one of our branches. Does not include delivery fees to home",
-
+  "SummaryOfYourDemand":"Summary Of Your Demand" ,
   "Children Residency Permit Issuance":"Children Residency Permit Issuance",
   "new_london_restaurants_descritpion":"Explore the vibrant and diverse cultural tapestry of the United Kingdom, where ancient history meets modern innovation. From the iconic landmarks of London to the breathtaking landscapes of the Scottish Highlands, the UK offers an unforgettable journey filled with rich heritage, captivating architecture, and renowned hospitality.",
 
@@ -395,7 +395,10 @@
   "irish_adventure": "Irish Adventure",
   "ireland_description": "Experience the magic of Ireland with its breathtaking landscapes, rich history, and lively culture, making it an unforgettable destination.",
   "italian_escapade": "Italian Escapade",
-  "italy_description": "Indulge in the romance and charm of Italy as you explore its historic cities, savor authentic cuisine, and soak in the beauty of its scenic countryside."
+  "italy_description": "Indulge in the romance and charm of Italy as you explore its historic cities, savor authentic cuisine, and soak in the beauty of its scenic countryside.",
+  "travelInformation": "Travel Informations ",
+  "travelDate":"Travel Date ",
+  "travelCountry":"Destination"
 }
 
 

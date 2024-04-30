@@ -60,3 +60,13 @@
             width: 20rem !important;
         }
   }
+  .visitCardImage
+  {
+    height: 12rem;
+    padding: 5px;
+    border-radius:25px;
+  }
+  .visitCard
+  {
+    height: 25rem;
+  }
