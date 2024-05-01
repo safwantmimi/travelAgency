@@ -9,7 +9,7 @@ import { GrLinkNext } from "react-icons/gr";
 import { FaPerson } from "react-icons/fa6";
 import { GrLinkPrevious } from "react-icons/gr";
 import { useTranslation } from 'react-i18next';
-
+import PaymentModal from "../components/PaymentModal"
 import '../styles/visaDemand.css';
 const countries = require('../dataSources/countries');
 
@@ -574,7 +574,7 @@ export default function VisaDemand() {
   <p className='specialText'>{visaData.visaDate}</p>
   </div>
     <div className='d-flex mt-2 justify-content-center'>
-      <button className="btn btn-success">Confirm Demand</button>
+    <PaymentModal/>
     </div>
               </div>
           </section>

@@ -151,6 +151,7 @@
     "Travel Form Filling": "Travel Form Filling",
     "International License N": "International License N",
     "IELTS": "IELTS",
+
     "Passport Renewal": "Passport Renewal",
     "University Acceptance": "University Acceptance",
     "Resident Passport": "Resident Passport",
@@ -250,6 +251,8 @@
     "selectCountryOfStudy": "Select Country of Study",
     "selectStudyCountry": "Select Study Country",
     "canada": "Canada",
+    "MakeCardPayment":"Make Payment using your card", 
+    "MakeOnSitePayment":"Make On site Payment "  ,
     "unitedKingdom": "United Kingdom",
     "usa": "USA",
     "australia": "Australia",
@@ -398,7 +401,15 @@
   "italy_description": "Indulge in the romance and charm of Italy as you explore its historic cities, savor authentic cuisine, and soak in the beauty of its scenic countryside.",
   "travelInformation": "Travel Informations ",
   "travelDate":"Travel Date ",
-  "travelCountry":"Destination"
+  "travelCountry":"Destination",
+  "CardExpirationDate": "Card Expiration Date MM/YY",
+  "CardHoldersName": "Card Holder's Name",
+  "CardNumber": "Card Number",
+  "SecurityCode": "Security Code",
+  "MakePayment": "Make Payment",
+  "PaymentOptions": "You can pay using your credit card or in one of our agencies",
+  "submitDemand":"تقديم طلب"
+
 }
 
 
