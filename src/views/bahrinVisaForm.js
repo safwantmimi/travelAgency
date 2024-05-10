@@ -8,6 +8,7 @@ import "../styles/servicesStyle.css";
 const BahrainVisaForm = () => {
   const [serviceType, setServiceType] = useState('');
   const [passportCount, setPassportCount] = useState(1);
+  const [servicePrice, setservicePrice] = useState(259);
   const [applicantName, setApplicantName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
@@ -24,7 +25,7 @@ const BahrainVisaForm = () => {
         passportCount,
         applicantName,
         phoneNumber,
-        email
+        email,
       }
       const response = await fetch("/api/demands/client-application", {
             method: "POST",
@@ -74,7 +75,11 @@ const BahrainVisaForm = () => {
               id="passportCount"
               placeholder={t('enter_passport_count', 'Enter Number of Passports')}
               value={passportCount}
-              onChange={(e) => setPassportCount(e.target.value)}
+              onChange={(e) => {
+                const newPassportCount = e.target.value;
+                setPassportCount(newPassportCount);
+                setservicePrice(259 * newPassportCount);
+              }}
             />
           </div>
           <div className="form-group mt-2">
@@ -112,7 +117,7 @@ const BahrainVisaForm = () => {
           </div>
           <div className="container d-flex justify-content-center flex-column align-items-center mt-2">
             <h1 className='serviceFee fs-4'>{t('service_cost', 'Service Cost')}</h1>
-            <p className='priceText specialText fs-5'>{t('saudi_riyals', '259 Saudi Riyals')}</p>
+            <p className='priceText specialText fs-5'>{servicePrice+"  " +t("Saudi Riyal")}</p>
           </div>
           <div className="container d-flex justify-content-center mt-3">
             <button type="submit" className="btn btn-primary btn-success">{t('submit_request', 'Submit Request')} <IoCheckmarkDoneSharp className='fs-4' /></button>

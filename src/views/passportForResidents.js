@@ -8,6 +8,8 @@ import "../styles/servicesStyle.css";
 const ChildrenResidencyPermitForm = () => {
   const { t } = useTranslation();
   const [passportCount, setPassportCount] = useState(1);
+  const [servicePrice, setservicePrice] = useState(99);
+
   const [country, setCountry] = useState('');
   const [applicantName, setApplicantName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -72,7 +74,12 @@ const ChildrenResidencyPermitForm = () => {
               id="passportCount"
               placeholder={t('Enter Number of Passports')}
               value={passportCount}
-              onChange={(e) => setPassportCount(e.target.value)}
+              onChange={(e) => {
+                const passportCount=e.target.value
+                setPassportCount(passportCount);
+                setservicePrice(99*passportCount)
+              
+              }}
             />
           </div>
           <div className="form-group mt-2">
@@ -121,7 +128,7 @@ const ChildrenResidencyPermitForm = () => {
           </div>
           <div className="container d-flex justify-content-center flex-column align-items-center mt-2">
             <h1 className='serviceFee fs-4'>{t('Service Cost')}</h1>
-            <p className='priceText specialText fs-5'>{t('99 Saudi Riyals')}</p>
+            <p className='priceText specialText fs-5'>{servicePrice+" "+t('Saudi Riyals')}</p>
             <p className='priceNotes fs-6'>{t('(Price includes: Service fees, appointment booking, form filling. Does not include embassy fees. Passport issuance inside the embassy usually takes 7 to 30 working days)')}</p>
           </div>
           <div className="container d-flex justify-content-center mt-3">

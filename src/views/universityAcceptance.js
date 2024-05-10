@@ -14,6 +14,8 @@ const UniversityAdmissionsForm = () => {
   const [paymentMethod, setPaymentMethod] = useState('');
   const [studyLevel, setStudyLevel] = useState('');
   const [toeflOrIelts, setToeflOrIelts] = useState('');
+  const [servicePrice, setservicePrice] = useState(259);
+
   const [applicantName, setApplicantName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');

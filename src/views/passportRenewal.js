@@ -11,6 +11,8 @@ const PassportRenewalForm = () => {
   const { t } = useTranslation();
   const [numberOfPassports, setNumberOfPassports] = useState(1);
   const [country, setCountry] = useState('');
+  const [servicePrice, setservicePrice] = useState(259);
+
   const [applicantName, setApplicantName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
@@ -87,7 +89,12 @@ const PassportRenewalForm = () => {
               id="numberOfPassports"
               placeholder={t('Enter Number of Passports')}
               value={numberOfPassports}
-              onChange={(e) => setNumberOfPassports(e.target.value)}
+              onChange={(e) =>{{ 
+                const noOfPassports=e.target.value
+                setNumberOfPassports(noOfPassports)
+                setservicePrice(259*noOfPassports)
+                
+              }}}
             />
           </div>
           <div className="form-group mt-2">
@@ -139,7 +146,7 @@ const PassportRenewalForm = () => {
           </div>
           <div className="container d-flex justify-content-center flex-column align-items-center mt-2">
             <h1 className='serviceFee fs-4'>{t('Service Fee')}</h1>
-            <p className='priceText specialText fs-5'>259 {t('Saudi Riyal')}</p>
+            <p className='priceText specialText fs-5'>{servicePrice} {t('Saudi Riyal')}</p>
           </div>
           <div className="container d-flex justify-content-center mt-3">
             <button type="submit" className="btn btn-primary btn-success">{t('Submit Demand')} <IoCheckmarkDoneSharp className='fs-4' /></button>

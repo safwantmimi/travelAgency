@@ -10,6 +10,7 @@ const NewServiceForm = () => {
   const { t } = useTranslation();
   const [serviceType, setServiceType] = useState('');
   const [numberOfServices, setNumberOfServices] = useState(1);
+  const [servicePrice, setservicePrice] = useState(119);
   const [deliveryMethod, setDeliveryMethod] = useState('');
   const [applicantName, setApplicantName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -76,7 +77,14 @@ const NewServiceForm = () => {
               id="numberOfServices"
               placeholder={t('Enter Number of Services', 'Enter Number of Services')}
               value={numberOfServices}
-              onChange={(e) => setNumberOfServices(e.target.value)}
+              onChange={(e) =>{ 
+                const noOfServices=e.target.value;
+                setNumberOfServices(noOfServices);
+                setservicePrice(119 * noOfServices);
+
+              }
+              }
+          
             />
           </div>
           <div className="form-group mt-2">
@@ -125,7 +133,7 @@ const NewServiceForm = () => {
           </div>
           <div className="container d-flex justify-content-center flex-column align-items-center mt-2">
             <h1 className='serviceFee fs-4'>{t('Service Cost', 'Service Cost')}</h1>
-            <p className='priceText specialText fs-5'>{t('119 Saudi Riyals', '119 Saudi Riyals')}</p>
+            <p className='priceText specialText fs-5'>{servicePrice+" "+t('Saudi Riyals')}</p>
             <p className='priceNotes fs-6'>{t('Price includes: Service fees, issuance of the international license, and receipt at one of our branches. Does not include delivery fees to home')}</p>
           </div>
           <div className="container d-flex justify-content-center mt-3">

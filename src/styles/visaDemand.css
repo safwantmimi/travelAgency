@@ -200,7 +200,6 @@ border: none;
 }
 .infoContainer
 {
-    border-right: 1px solid var(--grayText);
     padding: 10px !important;
 }
 .infoContainer:last-child

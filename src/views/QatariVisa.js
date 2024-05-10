@@ -8,7 +8,8 @@ import "../styles/servicesStyle.css";
 const QatarVisaForm = () => {
   const { t } = useTranslation();
   const [passportCount, setPassportCount] = useState(1);
-  const [applicantName, setApplicantName] = useState('');
+  const [applicantName, setApplicantName] = useState('');  
+  const [servicePrice, setservicePrice] = useState(199);
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
   const [alertMsg, setAlertMsg] = useState('');
@@ -69,7 +70,12 @@ const QatarVisaForm = () => {
               id="passportCount"
               placeholder={t('Enter Number of Passports')}
               value={passportCount}
-              onChange={(e) => setPassportCount(e.target.value)}
+              onChange={(e) => {
+                const passportCo=e.target.value
+                setPassportCount(passportCo)
+                setservicePrice(199*passportCo)
+              }
+              }
             />
           </div>
           <div className="form-group mt-2">
@@ -107,7 +113,7 @@ const QatarVisaForm = () => {
           </div>
           <div className="container d-flex justify-content-center flex-column align-items-center mt-2">
             <h1 className='serviceFee fs-4'>{t('Service Cost')}</h1>
-            <p className='priceText specialText fs-5'>199 {t('Saudi Riyals')}</p>
+            <p className='priceText specialText fs-5'>{servicePrice} {t('Saudi Riyals')}</p>
           </div>
           <div className="container d-flex justify-content-center mt-3">
             <button type="submit" className="btn btn-primary btn-success">{t('Submit Request')} <IoCheckmarkDoneSharp className='fs-4' /></button>

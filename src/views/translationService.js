@@ -12,6 +12,8 @@ const TranslationServiceForm = () => {
   const [numberOfPages, setNumberOfPages] = useState(1);
   const [file, setFile] = useState(null);
   const [content, setContent] = useState('');
+  const [servicePrice, setservicePrice] = useState(259);
+
   const [applicantName, setApplicantName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
@@ -75,7 +77,12 @@ const TranslationServiceForm = () => {
               id="numberOfPages"
               placeholder={t('enterNumberOfPages')}
               value={numberOfPages}
-              onChange={(e) => setNumberOfPages(e.target.value)}
+              onChange={(e) => {
+                const noOfPages=e.target.value;
+                setNumberOfPages(noOfPages)
+                setservicePrice(noOfPages*259)
+              }
+              }
             />
           </div>
           <div className="form-group mt-2">
@@ -139,7 +146,7 @@ const TranslationServiceForm = () => {
           </div>
           <div className="container d-flex justify-content-center flex-column align-items-center mt-2">
             <h1 className='serviceFee fs-4'>{t('serviceFee')}</h1>
-            <p className=' specialText fs-5'>259 {t('saudiRiyal')}</p>
+            <p className=' specialText fs-5'>{servicePrice} {t('saudiRiyal')}</p>
             <p className="priceNotes">{t('priceNotes')}</p>
           </div>
           <div className="container d-flex justify-content-center mt-3">

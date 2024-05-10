@@ -11,6 +11,7 @@ const UAEVisaForm = () => {
   const [serviceType, setServiceType] = useState('');
   const [passportCount, setPassportCount] = useState(1);
   const [applicantName, setApplicantName] = useState('');
+  const [servicePrice, setservicePrice] = useState(499);
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
   const [alertMsg, setAlertMsg] = useState('');
@@ -74,7 +75,12 @@ const UAEVisaForm = () => {
               id="passportCount"
               placeholder={t('enterPassportCount')}
               value={passportCount}
-              onChange={(e) => setPassportCount(e.target.value)}
+              onChange={(e) =>{ 
+                const passportCo=e.target.value
+                setPassportCount(e.target.value)
+                setservicePrice(passportCo*499)
+              }
+            }
             />
           </div>
           <div className="form-group mt-2">
@@ -112,7 +118,7 @@ const UAEVisaForm = () => {
           </div>
           <div className="container d-flex justify-content-center flex-column align-items-center mt-2">
             <h1 className='serviceFee fs-4'>{t('serviceCost')}</h1>
-            <p className='priceText specialText fs-5'>499 {t('saudiRiyals')}</p> 
+            <p className='priceText specialText fs-5'>{servicePrice} {t('saudiRiyals')}</p> 
           </div>
           <div className="container d-flex justify-content-center mt-3">
             <button type="submit" className="btn btn-primary btn-success">{t('submitRequest')} <IoCheckmarkDoneSharp className='fs-4' /></button> {/* Translate button text */}
