@@ -22,6 +22,7 @@ const Footer = React.lazy(() => import('./footer'));
 const Navbar = React.lazy(() => import('../components/navbar'));
 const Services = React.lazy(() => import('./services'));
 const Loader = React.lazy(() => import('./loading'));
+const TravelDetail = React.lazy(() => import('./travelDetail'));
 
 
 
@@ -44,6 +45,7 @@ export default function MainPage() {
           <Blog />
           <Countries />
           <Testimonials />
+          <TravelDetail />
           <Footer />
         </>
       )}

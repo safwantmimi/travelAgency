@@ -1,11 +1,11 @@
 import React from 'react'
 import "../styles/blog.css"
 import { FaRegClock } from "react-icons/fa6";
-import mainArticlePhoto from "../images/london.jpg"
-import amesterdamPhoto from "../images/amesterdam.jpg"
-import sushi from "../images/sushi.jpg"
-import italy from "../images/italy.jpg"
-import ireland from "../images/irelland.jpg"
+import mainArticlePhoto from "../images/london.webp"
+import amesterdamPhoto from "../images/amesterdam.webp"
+import sushi from "../images/sushi.webp"
+import italy from "../images/italy.webp"
+import ireland from "../images/irelland.webp"
 import { FaLocationArrow } from "react-icons/fa";
 import { useTranslation } from 'react-i18next'; // Import useTranslation hook for translations
 

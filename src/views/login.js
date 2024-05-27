@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/login.css';
-import userImage from "../images/fingerprint.png";
+import userImage from "../images/fingerprint.webp";
 import { useTranslation } from 'react-i18next';
 
 export default function Login() {

@@ -19,19 +19,19 @@ const countryList = [
 ];
 
 const pictures = [
-  require("../images/uk.jpg"),
-  require("../images/czech.jpg"),
-  require("../images/finland.jpg"),
-  require("../images/norway.jpg"),
-  require("../images/switzerland.jpg"),
-  require("../images/ireland.jpg"),
-  require("../images/italy.jpg"),
-  require("../images/france.jpg"),
-  require("../images/spain.jpg"),
-  require("../images/greece.jpg"),
-  require("../images/turkey.jpg"),
-  require("../images/germany.jpg"),
-  require("../images/usa.jpg")
+  require("../images/uk.webp"),
+  require("../images/czech.webp"),
+  require("../images/finland.webp"),
+  require("../images/norway.webp"),
+  require("../images/switzerland.webp"),
+  require("../images/ireland.webp"),
+  require("../images/italy.webp"),
+  require("../images/france.webp"),
+  require("../images/spain.webp"),
+  require("../images/greece.webp"),
+  require("../images/turkey.webp"),
+  require("../images/germany.webp"),
+  require("../images/usa.webp")
 ];
 
 export default function Countries() {

@@ -408,8 +408,36 @@
   "SecurityCode": "Security Code",
   "MakePayment": "Make Payment",
   "PaymentOptions": "You can pay using your credit card or in one of our agencies",
-  "submitDemand":"تقديم طلب"
-
+  "travelDetails": {
+    "modalTitle": "Travel Program",
+    "duration": "5 Days – 4 Nights",
+    "priceIncludes": "Price Includes:",
+    "includesList": [
+      "Reception at the airport with a private car and transfer to the hotel.",
+      "Tourist trips by private car to the tourist attractions.",
+      "Transfer from hotels to the airport for the return to home country by private car.",
+      "Hotels including breakfast, tax, and transfer service.",
+      "Arabic-speaking staff in Indonesia (for assistance, inquiries, and following up with tourists until they return home safely).",
+      "Free mobile SIM cards if available."
+    ],
+    "priceExcludes": "Price Excludes:",
+    "excludesList": [
+      "International flights.",
+      "Visa processing fees if required."
+    ],
+    "dayOne": "Day One",
+    "dayOneDetails": "Reception at the international airport in the Maldives and transfer to the resort by speedboat.",
+    "dayTwo": "Day Two",
+    "dayTwoDetails": "Tour around the most famous tourist attractions.",
+    "dayThree": "Day Three",
+    "dayThreeDetails": "Free day for relaxation.",
+    "dayFour": "Day Four",
+    "dayFourDetails": "Free day for relaxation.",
+    "dayFive": "Day Five",
+    "dayFiveDetails": "Transfer from the resort to the airport for the return to home country safely.",
+    "closeButton": "Close",
+    "saveButton": "Save Changes"
+  }
 }
 
 

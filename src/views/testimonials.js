@@ -1,5 +1,5 @@
 import React from 'react';
-import earthImage from '../images/globalEarth.jpg';
+import earthImage from '../images/globalEarth.webp';
 import '../styles/testimonials.css';
 import TestimonialsComponent from "../components/testimonyCarousel";
 
