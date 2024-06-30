@@ -9,8 +9,8 @@ import { withTranslation } from 'react-i18next';
 import LangSwitcher from './langSwitcher';
 
 function Navbar() {
-  const { t,i18n } = useTranslation();
-  const [activeList, setActiveList] = useState([true, false, false, false, false, false, false]);
+  const { t, i18n } = useTranslation();
+  const [activeList, setActiveList] = useState([true, false, false, false,false, false, false, false]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -83,13 +83,18 @@ function Navbar() {
             </a>
           </li>
           <li className="nav-item mx-2" onClick={() => setActive(5)}>
-            <a className={"nav-link " + (activeList[5] ? "active" : "")}  href="/#testimonials">
-              {t('testimonials','Tesimonials')}
+            <a className={"nav-link " + (activeList[5] ? "active" : "")} href="/#testimonials">
+              {t('testimonials','Testimonials')}
             </a>
           </li>
           <li className="nav-item mx-2" onClick={() => setActive(6)}>
-            <a className={"nav-link " + (activeList[6] ? "active" : "")} href="/#contact">
+            <a className={"nav-link " + (activeList[6] ? "active" : "")} href="/contact">
               {t('contact us','Contact Us')}
+            </a>
+          </li>
+            <li className="nav-item mx-2" onClick={() => setActive(7)}>
+            <a className={"nav-link " + (activeList[7] ? "active" : "")} href="/aboutUs">
+              {t('about_us')}
             </a>
           </li>
         </ul>

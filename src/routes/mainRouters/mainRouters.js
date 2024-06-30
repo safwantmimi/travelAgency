@@ -14,8 +14,10 @@ import UAEVisaForm from '../../views/UAEVisaForResidents.js';
 import UniversityAdmissionsForm from '../../views/universityAcceptance.js';
 import PassportForResidents from '../../views/passportForResidents.js';
 import VehicleInsuranceForm from '../../views/VehiculeInssurance.js';
+import AboutUs from '../../views/aboutUs.js';
 import QatarVisaForm from '../../views/QatariVisa.js';
 import NotificationModal from '../../components/notificationModal.js';
+import ContactUs from "../../views/contactUs.js"
 export default function mainRouters() {
   return (
     <Routes>
@@ -35,6 +37,8 @@ export default function mainRouters() {
     <Route path='/ResidentPassport' element={<PassportForResidents />}></Route>
     <Route path='/VehicleInsurance' element={<VehicleInsuranceForm />}></Route>
     <Route path='/QatariVisa' element={<QatarVisaForm />}></Route>
+    <Route path='/contact' element={<ContactUs />}></Route>
+    <Route path='/aboutUs' element={<AboutUs />}></Route>
 
     
    </Routes>

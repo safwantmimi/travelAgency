@@ -1,49 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('http://fonts.googleapis.com/earlyaccess/droidarabickufi.css');
 
-
-
-
-/*//////////////////////////////////////////////////////////////////
-[ FONT ]*/
-
-@font-face {
-  font-family: Montserrat-Regular;
-  src: url('../fonts/montserrat/Montserrat-Regular.ttf'); 
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins" !important;
 }
-
-@font-face {
-  font-family: Montserrat-Bold;
-  src: url('../fonts/montserrat/Montserrat-Bold.ttf'); 
-}
-
-@font-face {
-  font-family: Montserrat-ExtraBold;
-  src: url('../fonts/montserrat/Montserrat-ExtraBold.ttf'); 
-}
-
-@font-face {
-  font-family: Montserrat-Medium;
-  src: url('../fonts/montserrat/Montserrat-Medium.ttf'); 
-}
-
-
-
-/*//////////////////////////////////////////////////////////////////
-[ RESTYLE TAG ]*/
-
-* {
-	margin: 0px; 
-	padding: 0px; 
-	box-sizing: border-box;
-}
-
-body, html {
-	height: 100%;
-	font-family: Montserrat-Regular, sans-serif;
-}
-
-/*---------------------------------------------*/
 a {
-	font-family: Montserrat-Regular;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -69,7 +34,6 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 p {
-	font-family: Montserrat-Regular;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -130,14 +94,13 @@ iframe {
 
 .contact1 {
   width: 100%;
-  min-height: 100%;
-  padding: 15px;
-
-  background: #009bff;
-  background: -webkit-linear-gradient(left, #0072ff, #00c6ff);
-  background: -o-linear-gradient(left, #0072ff, #00c6ff);
-  background: -moz-linear-gradient(left, #0072ff, #00c6ff);
-  background: linear-gradient(left, #0072ff, #00c6ff);
+  padding: 25px;
+margin-top: 50px !important;
+  background: var(--primaryColor);
+  background: -webkit-linear-gradient(left, var(--primaryColor), #6d4fff);
+  background: -o-linear-gradient(left, var(--primaryColor), #6d4fff);
+  background: -moz-linear-gradient(left, var(--primaryColor), #6d4fff);
+  background: linear-gradient(left, var(--primaryColor), #6d4fff);
 
   display: -webkit-box;
   display: -webkit-flex;
@@ -151,6 +114,7 @@ iframe {
 
 .container-contact1 {
   width: 1163px;
+  height: 2% !important;
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
@@ -184,14 +148,15 @@ iframe {
   width: 390px;
 }
 
-.contact1-form-title {
+.contact1Title {
   display: block;
-  font-family: Montserrat-ExtraBold;
-  font-size: 24px;
+  font-size: 32px ;
   color: #333333;
   line-height: 1.2;
   text-align: center;
   padding-bottom: 44px;
+  font-family: "Poppins" !important;
+
 }
 
 input.input1 {
@@ -224,12 +189,16 @@ textarea.input1 + .shadow-input1 {
   display: block;
   width: 100%;
   background: #e6e6e6;
-  font-family: Montserrat-Bold;
   font-size: 15px;
   line-height: 1.5;
   color: #666666;
 }
-
+.contactTitle
+{
+  text-align: center;
+  font-size: 30px !important;
+  font-family: "Poppins" !important;
+}
 .shadow-input1 {
   content: '';
   display: block;
@@ -278,7 +247,6 @@ textarea.input1 + .shadow-input1 {
   height: 50px;
   border-radius: 25px;
   background: #57b846;
-  font-family: Montserrat-Bold;
   font-size: 15px;
   line-height: 1.5;
   color: #fff;
@@ -393,7 +361,6 @@ textarea.input1 + .shadow-input1 {
   right: 8px;
   pointer-events: none;
 
-  font-family: Montserrat-Medium;
   color: #c80000;
   font-size: 13px;
   line-height: 1.4;
@@ -410,7 +377,6 @@ textarea.input1 + .shadow-input1 {
 
 .alert-validate::after {
   content: "\f06a";
-  font-family: FontAwesome;
   display: block;
   position: absolute;
   color: #c80000;
@@ -434,4 +400,14 @@ textarea.input1 + .shadow-input1 {
     visibility: visible;
     opacity: 1;
   }
+}
+.contact1Title {
+  display: block;
+  font-size: 32px ;
+  color: #333333;
+  line-height: 1.2;
+  text-align: center;
+  padding-bottom: 44px;
+  font-family: "Poppins" !important;
+
 }

@@ -22,6 +22,9 @@
     "login_using": "Login Using",
     "email_address": "Email Address",
     "phone_number": "Phone Number",
+    "subject":"Subjet",
+    "about_us":"Who are We ? ",
+
     "email_placeholder": "Your email address please",
     "phone_placeholder": "Your phone number please",
     "remember_me": "Remember Me",
@@ -436,7 +439,12 @@
     "dayFive": "Day Five",
     "dayFiveDetails": "Transfer from the resort to the airport for the return to home country safely.",
     "closeButton": "Close",
-    "saveButton": "Save Changes"
+    "saveButton": "Save Changes",
+    "sendMessage":"Send Message",
+    "messageContent":"Message Content",
+    "aboutUsText":"Fast Service Travel is a comprehensive agency specializing in a wide array of services to meet your travel and administrative needs. Our offerings include passport applications, flight bookings, travel arrangements, and translation services. Additionally, we provide expert assistance with various administrative tasks, ensuring a seamless and efficient experience. At Fast Service Travel, we are committed to delivering top-notch service to help you navigate the complexities of travel and administration with ease."
+
+
   }
 }
 
