@@ -39,9 +39,26 @@ export default function VisaDemand() {
   const stepThree=useRef(null);
   const stepFour=useRef(null);
   const modalOpener=useRef(null);
+  const hasEmptyField=(obj)=> {
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            if (obj[key] === null || obj[key] === undefined || obj[key] === '') {
+                return true;
+            }
+        }
+    }
+    return false;
+}
   const HandleActivePersonPlus=()=>{
     if(activePerson<visaData.noOfTraverlers)
     {
+      if(hasEmptyField(user))
+      {
+        document.getElementById("dataPassError").classList.remove("d-none")
+      }
+      else 
+      {
+        document.getElementById("dataPassError").classList.add("d-none")
       setActivePerson(activePerson+1);
       const NewUsersList=[...users,user] 
       setUsers(NewUsersList);
@@ -50,10 +67,11 @@ export default function VisaDemand() {
               firstName: '',
               email: '',
               phone: '',
-              gender: '',
+              gender: t("male"),
               birthdate: '',
               passportScan: ''
             });
+          }
     }
     else if(activePerson==visaData.noOfTraverlers)
     {
@@ -109,12 +127,51 @@ export default function VisaDemand() {
     calculateCost(noOfTraverlers);
   };
   const searchCountry = event => {
+    const countryTranslations = {
+      "المملكة المتحدة": "United Kingdom",
+      "الجمهورية التشيكية": "Czech Republic",
+      "فنلندا": "Finland",
+      "النرويج": "Norway",
+      "سويسرا": "Switzerland",
+      "أيرلندا": "Ireland",
+      "إيطاليا": "Italy",
+      "فرنسا": "France",
+      "إسبانيا": "Spain",
+      "اليونان": "Greece",
+      "تركيا": "Turkey",
+      "ألمانيا": "Germany",
+      "أرمينيا": "Armenia",
+      "أستراليا": "Australia",
+      "النمسا": "Austria",
+      "أذربيجان": "Azerbaijan",
+      "البوسنة والهرسك": "Bosnia and Herzegovina",
+      "الصين": "China",
+      "قبرص": "Cyprus",
+      "الدانمارك": "Denmark",
+      "مصر": "Egypt",
+      "هنغاريا": "Hungary",
+      "إندونيسيا": "Indonesia",
+      "الهند": "India",
+      "اليابان": "Japan",
+      "كوريا الجنوبية": "South Korea",
+      "ماليزيا": "Malaysia",
+      "هولندا": "Netherlands",
+      "نيوزيلندا": "New Zealand",
+      "البرتغال": "Portugal",
+      "روسيا": "Russia",
+      "السويد": "Sweden",
+      "سنغافورة": "Singapore",
+      "فيتنام": "Vietnam"
+    };
+ 
+    const countryKeyWord=(countryTranslations[event.target.value] || event.target.value).toLowerCase();
+    
     setCountriesCopy(
       countries.filter(country => {
         return (
           country.countryName
             .toLowerCase()
-            .indexOf(event.target.value.toLowerCase()) != -1
+            .indexOf(countryKeyWord) != -1
         );
       })
     );
@@ -468,6 +525,9 @@ export default function VisaDemand() {
             </div>
             <div className='calendarContainer container-fluid p-2'>
             <form>
+      <div className="form-group mt-2">
+    <label  className="alert alert-danger d-none" id='dataPassError'  htmlFor="inputName">{t('Passenger data error message')}</label>
+  </div>
   <div className="form-group mt-2">
     <label  className="specialText" htmlFor="inputName">{t('name')}</label>
     <input type="text" className="form-control" id="inputName" placeholder={t('enterYourName')} onChange={(event)=>{handleInputChange('name',event)}}  value={user['name']}/>
@@ -479,9 +539,9 @@ export default function VisaDemand() {
   <div className="form-group mt-2">
     <label  className="specialText" htmlFor="inputGender">{t('gender')}</label>
     <select className="form-control" id="inputGender" onChange={(event)=>{handleInputChange('gender',event)}} value={user['gender']}>
-      <option>{t('male')}</option>
-      <option>{t('female')}</option>
-      <option>{t('other')}</option>
+      <option value={t('male')}>{t('male')}</option>
+      <option value={t('female')}>{t('female')}</option>
+      <option value={t('other')}>{t('other')}</option>
     </select>
   </div>
   <div className="form-group mt-2">
@@ -508,7 +568,7 @@ export default function VisaDemand() {
   <>
       <button type="button" className="btn nextPerson" onClick={HandleActivePersonMinus}><GrLinkPrevious className='mx-2'></GrLinkPrevious> {t('previousPerson')}</button>
     
-    <button type="button" className="btn nextPerson" onClick={HandleActivePersonPlus}>{t('nextPerson')}  <GrLinkNext className='mx-2'></GrLinkNext></button>
+    <button type="button" className="btn nextPerson"  onClick={HandleActivePersonPlus}>{t('nextPerson')}  <GrLinkNext className='mx-2'></GrLinkNext></button>
   </>
 ) : (
   <>
@@ -572,6 +632,8 @@ export default function VisaDemand() {
   <p className='specialText'>{t(visaData.visaType)}</p>
   <p className='fw-normal'>{t("travelDate")}</p>
   <p className='specialText'>{visaData.visaDate}</p>
+  <p className='fw-normal'>{t("Price")}</p>
+  <p className='specialText'>{totalCost} {t('Saudi Riyal')}</p>
   </div>
     <div className='d-flex mt-2 justify-content-center'>
     <PaymentModal/>

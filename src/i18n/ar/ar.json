@@ -121,6 +121,7 @@
     "Enter Email Address": "ادخل عنوان البريد الإلكتروني",
     "Service Cost": "تكلفة الخدمة",
     "Price includes": "السعر يشمل",
+    "Price": "السعر ",
     "Service fees": "رسوم الخدمة",
     "test booking": "حجز الاختبار",
     "conducting the test": "إجراء الاختبار",
@@ -168,10 +169,11 @@
 
 
     "Passport Renewal Service": "خدمة تجديد جواز السفر",
+    "Passenger data error message":"يرجى ملء جميع حقول الركاب. جميع الحقول مطلوبة.",
     "Country": "البلد",
     "Select Country": "اختر البلد",
     "Service Fee": "رسوم الخدمة",
-    "Saudi Riyal": "ريال السعودي",
+    "Saudi Riyal": "ريال سعودي",
     "Submit Demand": "تقديم الطلب",
 
     "Qatar Visa for Residents": "تأشيرة قطر للمقيمين",
